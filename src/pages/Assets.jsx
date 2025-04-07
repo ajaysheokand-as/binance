@@ -66,7 +66,7 @@ const Assets = () => {
           Spot
           <div className="absolute ml-8 -mt-6 w-2 h-2 bg-yellow-400 rounded-full"></div>
         </div>
-        <div className="text-gray-400 mr-6">Funding</div>
+        <div className="text-gray-400 mr-6"><Link to={'/funding'}> Funding</Link></div>
         <div className="text-gray-400">Futures</div>
       </div>
 

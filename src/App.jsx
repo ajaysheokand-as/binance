@@ -7,6 +7,7 @@ import History from "./pages/History";
 import CryptoWalletWithdraw from "./pages/CryptoWalletWithdraw";
 import SelectCoin from "./pages/SelectCoin";
 import USDT from "./pages/Usdts";
+import Funding from "./pages/Funding";
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
         <Route path="/CryptoWalletWithdraw" element={<CryptoWalletWithdraw/>} />
         <Route path="/selectCoin" element={<SelectCoin/>} />
         <Route path="/USDT" element={<USDT/>} />
+        <Route path="/funding" element={<Funding/>} />
         <Route path="*" element={<HomeScreen />} />
       </Routes>
     </>
