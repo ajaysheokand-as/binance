@@ -11,8 +11,10 @@ import {
   Eye,
   ChevronRight,
   ChevronDown,
+  History,
 } from "lucide-react";
 import BottomNavigation from "../components/BottomNavigation";
+import { Link } from "react-router-dom";
 
 const Assets = () => {
   return (
@@ -64,7 +66,7 @@ const Assets = () => {
           Spot
           <div className="absolute ml-8 -mt-6 w-2 h-2 bg-yellow-400 rounded-full"></div>
         </div>
-        <div className="text-gray-400 mr-6">Funding</div>
+        <div className="text-gray-400 mr-6"><Link to={'/funding'}> Funding</Link></div>
         <div className="text-gray-400">Futures</div>
       </div>
 
@@ -73,6 +75,7 @@ const Assets = () => {
         <div className="flex items-center mb-2">
           <div className="text-gray-400 mr-2">Est. Total Value</div>
           <Eye size={16} />
+          <Link to={'/withdrawal'}><History size={16} /> </Link>  
           <div className="flex-grow"></div>
         </div>
 
@@ -94,7 +97,7 @@ const Assets = () => {
             Add Funds
           </button>
           <button className="flex-1 bg-gray-800 text-white font-bold py-3 px-4 rounded-lg">
-            Send
+         <Link to={'/CryptoWalletWithdraw'} className="flex-1 bg-gray-800 text-white font-bold py-3 px-4 rounded-lg">Send</Link> 
           </button>
           <button className="flex-1 bg-gray-800 text-white font-bold py-3 px-4 rounded-lg">
             Transfer
