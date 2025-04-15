@@ -186,8 +186,8 @@ const HomeScreen = () => {
       {/* Search Header */}
       <div className="flex items-center justify-between p-3 bg-gray-800">
         <div className="flex items-center w-full">
-          <div className="bg-gray-700 p-2 rounded-full mr-3 flex items-center justify-center">
-            <img src={LogoB} height={30} width={30} />
+          <div className="bg-gray-800 p-2 rounded-full mr-3 flex items-center justify-center">
+            <img src={LogoB} height={30} width={30} className="rounded-md cursor-pointer" />
           </div>
           <div className="bg-gray-700 flex items-center rounded-full py-2 px-4 flex-1 mr-3">
             {headerIcons.search}
@@ -195,7 +195,7 @@ const HomeScreen = () => {
             <span className="text-gray-400">UFT</span>
           </div>
         </div>
-        <div className="flex space-x-5">
+        <div className="flex space-x-5 cursor-pointer">
           {headerIcons.message}
           {headerIcons.headphones}
           {headerIcons.bell}
@@ -205,7 +205,7 @@ const HomeScreen = () => {
       {/* Portfolio Value */}
       <div className="p-4 bg-gray-800">
         <div className="flex items-center mb-2">
-          <span className="text-gray-400 text-sm font-medium">
+          <span className="text-gray-400 text-sm font-medium cursor-pointer">
             Est. Total Value (USD)
           </span>
           <svg
@@ -218,7 +218,7 @@ const HomeScreen = () => {
         </div>
         <div className="flex justify-between items-center">
           <div className="text-3xl font-bold">$139.96</div>
-          <button className="bg-yellow-500 text-black font-semibold py-2 px-6 rounded-full text-sm">
+          <button className="bg-yellow-500 cursor-pointer text-black font-semibold py-2 px-6 rounded-full text-sm">
             Add Funds
           </button>
         </div>
@@ -226,7 +226,7 @@ const HomeScreen = () => {
 
       {/* Quick Actions */}
       <div className="flex justify-around p-4 bg-gray-800 border-b border-gray-700">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center cursor-pointer">
           <div className="p-3 bg-gray-700 rounded-full mb-2 relative">
             {actionIcons.user}
             <span className="absolute -top-1 -right-1 text-yellow-500 text-xs font-bold">
@@ -235,13 +235,13 @@ const HomeScreen = () => {
           </div>
           <span className="text-xs">Referral</span>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center cursor-pointer">
           <div className="p-3 bg-gray-700 rounded-full mb-2">
             {actionIcons.award}
           </div>
           <span className="text-xs">Earn</span>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center cursor-pointer">
           <div className="p-3 bg-gray-700 rounded-full mb-2 relative">
             {actionIcons.grid}
             <span className="absolute -top-1 -right-1 text-yellow-500 text-xs font-bold">
@@ -258,7 +258,7 @@ const HomeScreen = () => {
           {marketTabs.map((tab) => (
             <button
               key={tab}
-              className={`px-2 py-1 whitespace-nowrap text-sm ${
+              className={`px-2 py-1 whitespace-nowrap text-sm cursor-pointer ${
                 activeTab === tab
                   ? "text-white border-b-2 border-yellow-500 font-medium"
                   : "text-gray-400"
@@ -282,7 +282,7 @@ const HomeScreen = () => {
         {cryptoData.map((crypto, index) => (
           <div
             key={index}
-            className="flex justify-between items-center px-4 py-3 border-b border-gray-700"
+            className="flex justify-between cursor-pointer items-center px-4 py-3 border-b border-gray-700"
           >
             <div className="font-bold text-sm w-1/4">{crypto.name}</div>
             <div className="text-right w-2/5">
