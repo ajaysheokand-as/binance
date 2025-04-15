@@ -126,8 +126,8 @@ const CryptoWalletWithdraw = () => {
             </div>
             
             {/* On-Chain */}
-           <Link to={'/selectCoin'}>
            <div className="bg-gray-700 p-4 rounded-lg">
+           <Link to={'/selectCoin'}>
               <div className="flex items-center">
                 <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center mr-3">
                   <span>⬆️</span>
@@ -137,8 +137,8 @@ const CryptoWalletWithdraw = () => {
                   <div className="text-sm text-gray-400">Withdraw Crypto from Binance to other exchanges/</div>
                 </div>
               </div>
-            </div>
            </Link>
+            </div>
             
             {/* Sell to INR */}
             <div className="bg-gray-700 p-4 rounded-lg">

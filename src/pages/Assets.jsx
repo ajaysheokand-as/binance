@@ -100,7 +100,8 @@ const Assets = () => {
          <Link to={'/CryptoWalletWithdraw'} className="flex-1 bg-gray-800 text-white font-bold py-3 px-4 rounded-lg">Send</Link> 
           </button>
           <button className="flex-1 bg-gray-800 text-white font-bold py-3 px-4 rounded-lg">
-            Transfer
+            
+         <Link to={'/transfer'} className="flex-1 bg-gray-800 text-white font-bold py-3 px-4 rounded-lg">Transfer</Link> 
           </button>
         </div>
 
