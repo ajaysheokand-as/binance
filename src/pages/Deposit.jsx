@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowLeft, Filter, ChevronRight } from 'lucide-react';
+import BottomNavigation from '../components/BottomNavigation';
 
 const History = () => {
   const deposits = [
@@ -20,16 +21,17 @@ const History = () => {
       <div className="flex items-center p-4 border-b border-gray-800">
         <ArrowLeft className="text-gray-400" size={24} />
         <h1 className="text-xl font-medium flex-1 text-center">Spot</h1>
-        <div className="w-6"></div>
+        <svg size="16" width={24}  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z" fill="currentColor"></path></svg>
+        {/* <div className="w-6"></div> */}
       </div>
 
       {/* Navigation Tabs */}
       <div className="flex border-b border-gray-800">
-        <div className="px-4 py-3 text-gray-400">History</div>
-        <div className="px-4 py-3 text-gray-400">Trade History</div>
-        <div className="px-4 py-3 text-white border-b-2 border-yellow-500">Deposit</div>
-        <div className="px-4 py-3 text-gray-400">Withdrawal</div>
-        <div className="px-4 py-3 text-gray-400">Buy</div>
+        <div className="px-3 py-4 text-gray-400">History</div>
+        <div className="px-3 py-4 text-gray-400">Trade History</div>
+        <div className="px-3 py-4 text-white border-b-2 border-yellow-500">Deposit</div>
+        <div className="px-3 py-4 text-gray-400">Withdrawal</div>
+        <div className="px-3 py-4 text-gray-400">Buy</div>
       </div>
 
       {/* Crypto/Cash Toggle */}
@@ -63,9 +65,7 @@ const History = () => {
       </div>
 
       {/* Bottom Indicator */}
-      <div className="flex justify-center p-4">
-        <div className="w-16 h-1 bg-gray-600 rounded-full"></div>
-      </div>
+      <BottomNavigation/>
     </div>
   );
 };

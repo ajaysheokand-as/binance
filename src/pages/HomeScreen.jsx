@@ -69,20 +69,9 @@ const HomeScreen = () => {
   // Custom action icons
   const actionIcons = {
     user: (
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 6C13.1 6 14 6.9 14 8C14 9.1 13.1 10 12 10C10.9 10 10 9.1 10 8C10 6.9 10.9 6 12 6ZM12 13C9.33 13 4 14.34 4 17V20H20V17C20 14.34 14.67 13 12 13ZM18 18H6V17.01C6.2 16.29 9.3 15 12 15C14.7 15 17.8 16.29 18 17V18Z"
-          fill="white"
-        />
-      </svg>
+      <svg class="bn-svg icon-normal left-icon-pc sidebar-icon-size shrink-0" width={22} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path  clip-rule="evenodd" d="M11 8.5a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0zM2 17a3 3 0 013-3h5a3 3 0 013 3v3H2v-3zm14.5-1v-3h-3v-3h3V7h3v3h3v3h-3v3h-3z" fill="currentColor"></path></svg>
     ),
-    award: (
+  award: (
       <svg
         width="20"
         height="20"
@@ -229,9 +218,6 @@ const HomeScreen = () => {
         <div className="flex flex-col items-center cursor-pointer">
           <div className="p-3 bg-gray-700 rounded-full mb-2 relative">
             {actionIcons.user}
-            <span className="absolute -top-1 -right-1 text-yellow-500 text-xs font-bold">
-              +
-            </span>
           </div>
           <span className="text-xs">Referral</span>
         </div>
