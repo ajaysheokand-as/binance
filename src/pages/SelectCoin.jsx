@@ -2,12 +2,11 @@ import React from 'react';
 import { ArrowLeft, Search, Trash2, ArrowUpDown } from 'lucide-react';
 import BottomNavigation from '../components/BottomNavigation';
 import { Link } from 'react-router-dom';
+import UsdtImg from '/public/usdt.svg' ;
 const SelectCoin = () => {
   return (
     <div className="flex flex-col bg-gray-900 text-white h-screen w-full max-w-md mx-auto">
       {/* Status Bar */}
-     
-
       {/* Header */}
       <div className="flex items-center p-4 border-b border-gray-800">
         <ArrowLeft className="text-gray-400" size={24} />
@@ -48,7 +47,7 @@ const SelectCoin = () => {
        <div className="bg-gray-800 bg-opacity-30 rounded-md p-4">
           <div className="flex items-center">
             <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center mr-3">
-              <span className="text-white text-xs">₮</span>
+              <img src={UsdtImg} width={24}  alt="" />
             </div>
             <div className="flex-1">
               <div className="flex justify-between">

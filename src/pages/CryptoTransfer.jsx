@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { ChevronRight ,ArrowUpDown } from 'lucide-react';
-import BottomNavigation from '../components/BottomNavigation';
+import React, { useState } from "react";
+import { ChevronRight, ArrowUpDown } from "lucide-react";
+import BottomNavigation from "../components/BottomNavigation";
 
 export default function CryptoTransfer() {
-  const [amount, setAmount] = useState('6.21555119');
-  
+  const [amount, setAmount] = useState("6.21555119");
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-900 text-white font-sans max-w-md mx-auto p-4">
       {/* Transfer Source & Destination */}
@@ -19,10 +19,8 @@ export default function CryptoTransfer() {
         </div>
 
         {/* Swap Button */}
-        <div className="flex justify-end -my-3 absolute top-14 right-[-11px] z-10 mr-4">
-          {/* <button className="bg-gray-700 rounded-lg p-1 border border-gray-600"> */}
-            <ArrowUpDown size={20} className="text-gray-300" />
-          {/* </button> */}
+        <div className="flex justify-end -my-3 absolute top-14 right-[-1px] z-10 mr-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" className="" transform="rotate(90)" fill="white" viewBox="0 0 226.8 226.8"><path d="M78.2 80.9V25.4L0 109.1h226.8V80.9zM0 145.9h148.6v55.5l78.2-83.8H0z"/></svg>
         </div>
 
         {/* To */}
@@ -72,7 +70,7 @@ export default function CryptoTransfer() {
           <div className="text-gray-400">Available 6.21555119 USDT</div>
         </div>
       </div>
-
+      <div></div>
       {/* Spacer */}
       <div className="flex-grow"></div>
 
@@ -80,7 +78,7 @@ export default function CryptoTransfer() {
       <button className="bg-yellow-400 text-black font-medium py-4 mb-15 rounded-lg w-full">
         Confirm Transfer
       </button>
-      <BottomNavigation/>
+      <BottomNavigation />
     </div>
   );
 }

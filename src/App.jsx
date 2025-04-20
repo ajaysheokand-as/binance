@@ -3,7 +3,7 @@ import HomeScreen from "./pages/HomeScreen";
 import { Routes, Route } from "react-router-dom";
 import SpotDeposit from "./pages/SpotDeposit";
 import History from "./pages/History";
-// import Deposit from './pages/Deposit'
+import Deposit from './pages/Deposit'
 import CryptoWalletWithdraw from "./pages/CryptoWalletWithdraw";
 import SelectCoin from "./pages/SelectCoin";
 import USDT from "./pages/Usdts";
@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/Assets" element={<Assets />} />
-        <Route path="/spot-deposit" element={<SpotDeposit />} />
+        <Route path="/spot-deposit" element={<Deposit />} />
         <Route path="/withdrawal" element={<History/>} />
         <Route path="/withdrawal/:id" element={<WithdrawalDetails/>} />
         <Route path="/CryptoWalletWithdraw" element={<CryptoWalletWithdraw/>} />
