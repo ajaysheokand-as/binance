@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
-  font-family: BinancePlex,Arial,sans-serif !important;
   line-height: 1.5;
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
@@ -12,6 +10,14 @@
   display: none;
 }
 
+*{
+  font-family: BinancePlex,Arial,sans-serif !important;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+}
+#searchIcon{
+  height:20px ;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

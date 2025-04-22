@@ -11,6 +11,7 @@ import Funding from "./pages/Funding";
 import Trade from "./pages/Trade";
 import WithdrawalDetails from "./pages/WithdrawalDetails";
 import CryptoTransfer from "./pages/CryptoTransfer";
+import Spot from "./pages/Spot";
 function App() {
   return (
     <>
@@ -26,6 +27,7 @@ function App() {
         <Route path="/trade" element={<Trade/>} />
         <Route path="/USDT" element={<USDT/>} />
         <Route path="/funding" element={<Funding/>} />
+        <Route path="/spot" element={<Spot/>} />
         <Route path="*" element={<HomeScreen />} />
       </Routes>
     </>

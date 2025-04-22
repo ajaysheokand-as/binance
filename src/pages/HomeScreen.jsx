@@ -1,70 +1,73 @@
 import React, { useState } from "react";
 import BottomNavigation from "../components/BottomNavigation";
-import LogoB from "../assets/Logo.jpeg";
+import logobb from "../assets/logobb.png";
+import headerIcons from '../assets/99.png'
+import mainIcon from '../assets/mainIcon.png'
+import search from '../assets/search.png'
 const HomeScreen = () => {
   const [activeTab, setActiveTab] = useState("Market Cap");
 
   const marketTabs = ["Gainers", "Losers", "New", "24h Vol", "Market Cap"];
 
   // Custom header icons
-  const headerIcons = {
-    message: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z"
-          fill="white"
-        />
-      </svg>
-    ),
-    headphones: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 1C7.03 1 3 5.03 3 10V17C3 18.66 4.34 20 6 20H9V12H5V10C5 6.13 8.13 3 12 3C15.87 3 19 6.13 19 10V12H15V20H18C19.66 20 21 18.66 21 17V10C21 5.03 16.97 1 12 1Z"
-          fill="white"
-        />
-      </svg>
-    ),
-    bell: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 16V11C18 7.93 16.36 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.63 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16ZM16 17H8V11C8 8.52 9.51 6.5 12 6.5C14.49 6.5 16 8.52 16 11V17Z"
-          fill="white"
-        />
-      </svg>
-    ),
-    search: (
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z"
-          fill="#9AA4B4"
-        />
-      </svg>
-    ),
-  };
+  // const headerIcons = {
+  //   message: (
+  //     <svg
+  //       width="22"
+  //       height="22"
+  //       viewBox="0 0 24 24"
+  //       fill="none"
+  //       xmlns="http://www.w3.org/2000/svg"
+  //     >
+  //       <path
+  //         d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z"
+  //         fill="white"
+  //       />
+  //     </svg>
+  //   ),
+  //   headphones: (
+  //     <svg
+  //       width="22"
+  //       height="22"
+  //       viewBox="0 0 24 24"
+  //       fill="none"
+  //       xmlns="http://www.w3.org/2000/svg"
+  //     >
+  //       <path
+  //         d="M12 1C7.03 1 3 5.03 3 10V17C3 18.66 4.34 20 6 20H9V12H5V10C5 6.13 8.13 3 12 3C15.87 3 19 6.13 19 10V12H15V20H18C19.66 20 21 18.66 21 17V10C21 5.03 16.97 1 12 1Z"
+  //         fill="white"
+  //       />
+  //     </svg>
+  //   ),
+  //   bell: (
+  //     <svg
+  //       width="22"
+  //       height="22"
+  //       viewBox="0 0 24 24"
+  //       fill="none"
+  //       xmlns="http://www.w3.org/2000/svg"
+  //     >
+  //       <path
+  //         d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 16V11C18 7.93 16.36 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.63 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16ZM16 17H8V11C8 8.52 9.51 6.5 12 6.5C14.49 6.5 16 8.52 16 11V17Z"
+  //         fill="white"
+  //       />
+  //     </svg>
+  //   ),
+  //   search: (
+  //     <svg
+  //       width="18"
+  //       height="18"
+  //       viewBox="0 0 24 24"
+  //       fill="none"
+  //       xmlns="http://www.w3.org/2000/svg"
+  //     >
+  //       <path
+  //         d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z"
+  //         fill="#9AA4B4"
+  //       />
+  //     </svg>
+  //   ),
+  // };
 
   // Custom action icons
   const actionIcons = {
@@ -155,7 +158,7 @@ const HomeScreen = () => {
   const bottomTabList = ["Discover", "Following", "News", "Announcements"];
 
   return (
-    <div className="flex flex-col h-screen max-w-md mx-auto bg-gray-900 text-white font-['SF_Pro_Display',-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open_Sans','Helvetica_Neue',sans-serif]">
+    <div className="flex flex-col h-screen max-w-md mx-auto bg-gray-800 text-white font-['SF_Pro_Display',-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open_Sans','Helvetica_Neue',sans-serif]">
       {/* Status Bar */}
       {/* <div className="flex justify-between items-center p-2 px-4 bg-gray-900">
         <div className="text-lg font-semibold">12:50</div>
@@ -176,18 +179,19 @@ const HomeScreen = () => {
       <div className="flex items-center justify-between p-3 bg-gray-800">
         <div className="flex items-center w-full">
           <div className="bg-gray-800 p-2 rounded-full mr-3 flex items-center justify-center">
-            <img src={LogoB} height={30} width={30} className="rounded-md cursor-pointer" />
+            <img src={logobb} height={30} width={40} className="rounded-md cursor-pointer" />
           </div>
           <div className="bg-gray-700 flex items-center rounded-full py-2 px-4 flex-1 mr-3">
-            {headerIcons.search}
+            <img src={search} width={20} alt="" />
             <span className="text-red-500 mx-1">🔥</span>
             <span className="text-gray-400">UFT</span>
           </div>
         </div>
         <div className="flex space-x-5 cursor-pointer">
-          {headerIcons.message}
+          <img src={headerIcons} width={160} height={10} alt="" />
+          {/* {headerIcons.message}
           {headerIcons.headphones}
-          {headerIcons.bell}
+          {headerIcons.bell} */}
         </div>
       </div>
 
@@ -214,7 +218,10 @@ const HomeScreen = () => {
       </div>
 
       {/* Quick Actions */}
-      <div className="flex justify-around p-4 bg-gray-800 border-b border-gray-700">
+      <div className="bg-gray-800">
+       <img src={mainIcon} alt="" className="cursor-pointer" />
+      </div>
+      {/* <div className="flex justify-around p-4 bg-gray-800 border-b border-gray-700">
         <div className="flex flex-col items-center cursor-pointer">
           <div className="p-3 bg-gray-700 rounded-full mb-2 relative">
             {actionIcons.user}
@@ -236,10 +243,10 @@ const HomeScreen = () => {
           </div>
           <span className="text-xs">Menu</span>
         </div>
-      </div>
+      </div> */}
 
       {/* Market Tabs */}
-      <div className="overflow-x-auto scrollbar-hide">
+      <div className="overflow-x-auto scrollbar-hide bg-gray-800">
         <div className="flex p-2 space-x-5 border-b border-gray-700 min-w-max">
           {marketTabs.map((tab) => (
             <button
@@ -259,10 +266,10 @@ const HomeScreen = () => {
 
       {/* Market Table */}
       <div className="flex-1 overflow-y-auto">
-        <div className="flex justify-between px-4 py-3 text-gray-400 text-xs">
+        <div className="flex justify-between px-4 py-1  text-gray-400 text-xs">
           <div className="w-1/4">Name</div>
-          <div className="w-2/5 text-right">Last Price/ 24h Chg%</div>
-          <div className="w-1/3 text-right">Cap/ Vol</div>
+          <div className="w-2/5 text-right">Last Price</div>
+          <div className="w-1/3 text-right">24h ch%</div>
         </div>
 
         {cryptoData.map((crypto, index) => (
