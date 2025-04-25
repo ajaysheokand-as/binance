@@ -1,8 +1,9 @@
 import React from 'react';
-import { ArrowLeft, Search, Trash2, ArrowUpDown } from 'lucide-react';
+import { ArrowLeft, Search, Trash2,  } from 'lucide-react';
 import BottomNavigation from '../components/BottomNavigation';
 import { Link } from 'react-router-dom';
 import UsdtImg from '/public/usdt.svg' ;
+import a_z from '../assets/a-z.png' ;
 const SelectCoin = () => {
   return (
     <div className="flex flex-col bg-gray-900 text-white h-screen w-full max-w-md mx-auto">
@@ -41,7 +42,8 @@ const SelectCoin = () => {
       <div className="px-4 mt-4 flex-1">
         <div className="flex justify-between items-center mb-2">
           <h2 className="text-lg font-medium">Coin List</h2>
-          <ArrowUpDown size={20} className="text-gray-400" />
+          <img src={a_z} alt="" width={22} className='mr-1' />
+          {/* <ArrowUpDown size={20} className="text-gray-400" /> */}
         </div>
        <Link to={'/usdt'}>
        <div className="bg-gray-800 bg-opacity-30 rounded-md p-4">

@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { ChevronDown, Search, Eye , } from 'lucide-react';
 import BottomNavigation from '../components/BottomNavigation';
 import { Link } from 'react-router-dom';
-
+import search from '../assets/search.png'
+import eye from '../assets/eye.png'
 const Funding = () => {
   const [activeSection ,  setActiveSection] =  useState("Funding")
   return (
     <div className="bg-gray-900 text-white h-screen w-full max-w-md mx-auto flex flex-col">
       {/* Status Bar */}
-
       {/* Tab Navigation */}
       <div className="flex justify-center mt-2">
         <div className="grid grid-cols-2 gap-1 bg-gray-800 rounded-lg p-1 w-64">
@@ -47,7 +47,8 @@ const Funding = () => {
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center">
         <div className="text-gray-400 mr-2">Est. Total Value</div>
-        <Eye size={17} />
+        {/* <Eye size={17} /> */}
+        <img src={eye} alt="" width={30} />
         </div>
 
           <div className="">
@@ -99,7 +100,8 @@ const Funding = () => {
       <div className="px-4 mt-8">
         <div className="flex justify-between items-center">
           <div className="text-xl font-semibold">Balances</div>
-          <Search size={20} className="text-gray-400" />
+          <img src={search} width={20} alt="" />
+          {/* <Search size={20} className="text-gray-400" /> */}
         </div>
 
         {/* USDT */}
@@ -117,7 +119,7 @@ const Funding = () => {
             <div>0.00</div>
             <div className="text-sm text-gray-400 mt-1">
               <div>Available 0.00</div>
-              <div>Freeze 0.00</div>
+              <>Freeze 0.00</>
             </div>
           </div>
         </div>
