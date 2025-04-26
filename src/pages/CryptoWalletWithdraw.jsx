@@ -2,6 +2,11 @@ import React from 'react';
 import { Eye, ChevronRight, ChevronDown } from 'lucide-react';
 import BottomNavigation from '../components/BottomNavigation';
 import { Link } from 'react-router-dom';
+import sendToBin from '../assets/sendToBin.png'
+import onChainWithdraw from '../assets/onChainWithdraw.png'
+import sellToInr from '../assets/sellToInr.png'
+import p2p from '../assets/p2p.png'
+
 const CryptoWalletWithdraw = () => {
   return (
     <div className="flex flex-col bg-gray-900 text-white h-screen w-full max-w-md mx-auto relative">
@@ -115,9 +120,10 @@ const CryptoWalletWithdraw = () => {
             {/* Binance Users */}
             <div className="bg-gray-700 p-4 rounded-lg">
               <div className="flex items-center">
-                <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center mr-3">
-                  <span>👤</span>
-                </div>
+                <img src={sendToBin} alt="" width={40} />
+                {/* <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center mr-3">
+                  <span><img src="" alt="" /></span>
+                  </div> */}
                 <div>
                   <div className="font-medium">Send to Binance users</div>
                   <div className="text-sm text-gray-400">Binance internal transfer, send via Email/Phone/ID</div>
@@ -129,11 +135,11 @@ const CryptoWalletWithdraw = () => {
            <div className="bg-gray-700 p-4 rounded-lg">
            <Link to={'/selectCoin'}>
               <div className="flex items-center">
-                <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center mr-3">
-                  <span>⬆️</span>
-                </div>
-                <div>
-                  <div className="font-medium">On-Chain Withdraw</div>
+
+                  <img src={onChainWithdraw} alt="" width={30} />
+                
+                <div className='ml-3'>
+                  <div className="font-medium ">On-Chain Withdraw</div>
                   <div className="text-sm text-gray-400">Withdraw Crypto from Binance to other exchanges/</div>
                 </div>
               </div>
@@ -143,10 +149,8 @@ const CryptoWalletWithdraw = () => {
             {/* Sell to INR */}
             <div className="bg-gray-700 p-4 rounded-lg">
               <div className="flex items-center">
-                <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center mr-3">
-                  <span>💼</span>
-                </div>
-                <div>
+              <img src={sellToInr} alt="" width={30} />
+                <div className='ml-3'>
                   <div className="font-medium">Sell to INR</div>
                   <div className="text-sm text-gray-400">Sell crypto easily to your account.</div>
                 </div>
@@ -156,10 +160,8 @@ const CryptoWalletWithdraw = () => {
             {/* P2P */}
             <div className="bg-gray-700 p-4 rounded-lg">
               <div className="flex items-center">
-                <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center mr-3">
-                  <span>👥</span>
-                </div>
-                <div>
+              <img src={p2p} alt="" width={30} />
+                <div className='ml-3'>
                   <div className="font-medium">P2P Trading</div>
                   <div className="text-sm text-gray-400">Sell directly to users. Competitive pricing. Local</div>
                 </div>

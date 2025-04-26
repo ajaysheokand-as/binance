@@ -1,118 +1,110 @@
-import React, { useState } from 'react';
-
-const USDT = () => {
-  const [withdrawAmount, setWithdrawAmount] = useState('0.00');
-  const [networkFee, setNetworkFee] = useState('0.00');
+import { ChevronDown, ArrowLeft, Clipboard, Maximize2, Info, User } from "lucide-react";
+import { useState } from "react";
+import withdrawpage from '../assets/withdrawpage.png'
+import w from '../assets/w.png'
+export default function USDT() {
+  const [address, setAddress] = useState("");
+  const [amount, setAmount] = useState("");
+  const [availableBalance] = useState("139.9611239 USDT");
 
   return (
-    <div className="bg-gray-900 text-gray-300 h-screen w-full max-w-md mx-auto font-sans relative">
+    <div className="flex flex-col h-screen w-full max-w-md mx-auto bg-gray-900 text-gray-300 font-sans">
+      {/* Status Bar */}
+  
+
       {/* Header */}
-      <div className="flex items-center p-4 border-b border-gray-800">
-        <div className="text-2xl font-medium text-white flex items-center justify-between w-full">
-          <div className="flex items-center">
-            <svg className="w-6 h-6 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            <span>Send USDT</span>
-          </div>
-          <div className="flex space-x-4">
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-            </svg>
-            <svg className='w-6 h-6' class="bn-svg icon-normal left-icon-pc sidebar-icon-size shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z" fill="currentColor"></path></svg>
-          </div>
+      <div className="p-4 flex items-center justify-between">
+        <ArrowLeft size={20} />
+        <div className="text-xl font-semibold text-white">Send USDT</div>
+        <div className="flex space-x-4">
+          {/* <Clipboard size={20} />
+          <Maximize2 size={20} /> */}
+          <img src={withdrawpage} alt="" width={66} />
         </div>
       </div>
 
-      {/* Form Content */}
-      <div className="p-4 space-y-6">
-        {/* Address Field */}
-        <div className="space-y-2">
-          <label className="text-gray-400 text-sm">Address</label>
-          <div className="bg-gray-800 rounded flex items-center justify-between p-3">
-            <span className="text-gray-400">Long press to paste</span>
-            <div className="flex space-x-2">
-              <svg className="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-              <svg className="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
-              </svg>
+      {/* Form */}
+      <div className="flex-1 px-4 pt-2 flex flex-col space-y-4">
+        {/* Address */}
+        <div>
+          <label className="text-sm text-gray-400">Address</label>
+          <div className="mt-2 flex justify-between items-center bg-gray-800 rounded-md">
+            <input
+              type="text"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Long press to paste"
+              className="w-full p-3 bg-transparent text-gray-300 outline-none"
+            />
+            <div className="flex space-x-2 pr-3">
+            <img src={w} alt="" width={66} />
             </div>
           </div>
         </div>
 
-        {/* Network Field */}
-        <div className="space-y-2">
-          <label className="text-gray-400 text-sm flex items-center">
-            Network 
-            <svg className="w-4 h-4 ml-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+        {/* Network */}
+        <div>
+          <label className="text-sm text-gray-400 flex items-center">
+            Network <Info size={14} className="ml-1 text-gray-400" />
           </label>
-          <div className="bg-gray-800 rounded flex items-center justify-between p-3">
+          <div className="mt-2 p-3 flex justify-between items-center bg-gray-800 rounded-md cursor-pointer">
             <span className="text-gray-400">Automatically match the network</span>
-            <svg className="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
+            <ChevronDown size={18} className="text-gray-400" />
           </div>
         </div>
 
-        {/* Withdraw Amount Field */}
-        <div className="space-y-2">
-          <label className="text-gray-400 text-sm flex items-center">
-            Withdraw Amount
-            <svg className="w-4 h-4 ml-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+        {/* Withdraw Amount */}
+        <div>
+          <label className="text-sm text-gray-400 flex items-center">
+            Withdraw Amount <Info size={14} className="ml-1 text-gray-400" />
           </label>
-          <div className="bg-gray-800 rounded flex items-center justify-between p-3">
-            <span className="text-gray-400">Minimum 0</span>
-            <div className="flex items-center">
-              <span className="mr-2">USDT</span>
-              <span className="text-yellow-500">Max</span>
+          <div className="mt-2 flex justify-between items-center bg-gray-800 rounded-md">
+            <input
+              type="number"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              placeholder="Minimum 0"
+              className="w-full p-3 bg-transparent text-gray-300 outline-none"
+            />
+            <div className="flex items-center space-x-2 pr-3">
+              <span className="text-white">USDT</span>
+              <button className="text-yellow-500 font-medium">Max</button>
             </div>
           </div>
         </div>
 
         {/* Available Balance */}
-        <div className="flex items-center justify-between">
-          <span className="text-gray-400">Available</span>
+        <div className="flex justify-between items-center">
+          <span className="text-sm text-gray-400">Available:</span>
           <div className="flex items-center">
-            <span>139.9611239 USDT</span>
-            <svg className="w-4 h-4 ml-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
+            <span className="text-sm">{availableBalance}</span>
+            <ChevronDown size={16} className="ml-1 text-gray-400" />
           </div>
         </div>
 
-        {/* Warning Messages */}
-        <div className="space-y-2 text-xs text-gray-400">
-          <p>* Do not withdraw directly to a crowdfund or ICO. We will not credit your account with tokens from that sale.</p>
-          <p className="flex items-center">
+        {/* Warnings */}
+        <div className="space-y-2 mt-4">
+          <p className="text-xs text-gray-400">
+            * Do not withdraw directly to a crowdfund or ICO. We will not credit your account with tokens from that sale.
+          </p>
+          <p className="text-xs text-gray-400 flex items-center">
             * Do not transact with Sanctioned Entities. 
             <span className="text-yellow-500 ml-1">Learn more</span>
           </p>
         </div>
+      </div>
 
-        {/* Bottom Section */}
-        <div className=" bottom-0 absolute left-0 right-0 p-4 bg-gray-900">
-          <div className="mb-4">
-            <div className="text-gray-400 mb-1">Receive amount</div>
-            <div className="flex items-baseline">
-              <span className="text-3xl font-medium text-white mr-2">{withdrawAmount}</span>
-              <span>USDT</span>
-            </div>
-            <div className="text-gray-400 text-sm">Network fee {networkFee} USDT</div>
-          </div>
-          
-          <button className="bg-yellow-500 w-full text-black font-medium py-3 rounded">
-            Withdraw
-          </button>
+      {/* Bottom Section */}
+      <div className="p-4 mt-auto border-t border-gray-800">
+        <div className="mb-2">
+          <p className="text-sm text-gray-400">Receive amount</p>
+          <p className="text-2xl font-semibold text-white">{amount || "0.00"} USDT</p>
+          <p className="text-sm text-gray-400">Network fee 0.00 USDT</p>
         </div>
+        <button className="w-full p-3 bg-yellow-500 rounded-md text-gray-900 font-semibold mt-4">
+          Withdraw
+        </button>
       </div>
     </div>
   );
-};
-
-export default USDT;
+}
