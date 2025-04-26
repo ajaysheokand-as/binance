@@ -2,9 +2,9 @@ import React from "react";
 import { Eye, ChevronRight, ChevronDown } from "lucide-react";
 import BottomNavigation from "../components/BottomNavigation";
 import { Link } from "react-router-dom";
-import sendToBin from "../assets/sendtobin.png";
+import sendToBin from "../assets/sendToBin.png";
 import onChainWithdraw from "../assets/onChainWithdraw.png";
-import sellToInr from "../assets/selltoinr.png";
+import sellToInr from "../assets/sellToInr.png";
 import p2p from "../assets/p2p.png";
 
 const CryptoWalletWithdraw = () => {
