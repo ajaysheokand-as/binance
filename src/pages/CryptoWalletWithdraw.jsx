@@ -1,11 +1,11 @@
-import React from 'react';
-import { Eye, ChevronRight, ChevronDown } from 'lucide-react';
-import BottomNavigation from '../components/BottomNavigation';
-import { Link } from 'react-router-dom';
-import sendToBin from '../assets/sendToBin.png'
-import onChainWithdraw from '../assets/onChainWithdraw.png'
-import sellToInr from '../assets/sellToInr.png'
-import p2p from '../assets/p2p.png'
+import React from "react";
+import { Eye, ChevronRight, ChevronDown } from "lucide-react";
+import BottomNavigation from "../components/BottomNavigation";
+import { Link } from "react-router-dom";
+import sendToBin from "../assets/sendtobin.png";
+import onChainWithdraw from "../assets/onChainWithdraw.png";
+import sellToInr from "../assets/selltoinr.png";
+import p2p from "../assets/p2p.png";
 
 const CryptoWalletWithdraw = () => {
   return (
@@ -64,11 +64,44 @@ const CryptoWalletWithdraw = () => {
             <Eye size={18} className="ml-2" />
           </div>
           <div>
-            <svg width="24" height="24" viewBox="0 0 24 24" className="text-gray-400">
-              <rect x="3" y="3" width="7" height="7" fill="currentColor" opacity="0.4" />
-              <rect x="14" y="3" width="7" height="7" fill="currentColor" opacity="0.4" />
-              <rect x="3" y="14" width="7" height="7" fill="currentColor" opacity="0.4" />
-              <rect x="14" y="14" width="7" height="7" fill="currentColor" opacity="0.4" />
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              className="text-gray-400"
+            >
+              <rect
+                x="3"
+                y="3"
+                width="7"
+                height="7"
+                fill="currentColor"
+                opacity="0.4"
+              />
+              <rect
+                x="14"
+                y="3"
+                width="7"
+                height="7"
+                fill="currentColor"
+                opacity="0.4"
+              />
+              <rect
+                x="3"
+                y="14"
+                width="7"
+                height="7"
+                fill="currentColor"
+                opacity="0.4"
+              />
+              <rect
+                x="14"
+                y="14"
+                width="7"
+                height="7"
+                fill="currentColor"
+                opacity="0.4"
+              />
             </svg>
           </div>
         </div>
@@ -114,7 +147,7 @@ const CryptoWalletWithdraw = () => {
             <div className="w-12 h-1 bg-gray-600 rounded-full"></div>
           </div>
           <h2 className="text-xl font-medium mb-4">Select Withdraw Method</h2>
-          
+
           {/* Withdraw Options */}
           <div className="space-y-3">
             {/* Binance Users */}
@@ -126,49 +159,56 @@ const CryptoWalletWithdraw = () => {
                   </div> */}
                 <div>
                   <div className="font-medium">Send to Binance users</div>
-                  <div className="text-sm text-gray-400">Binance internal transfer, send via Email/Phone/ID</div>
+                  <div className="text-sm text-gray-400">
+                    Binance internal transfer, send via Email/Phone/ID
+                  </div>
                 </div>
               </div>
             </div>
-            
-            {/* On-Chain */}
-           <div className="bg-gray-700 p-4 rounded-lg">
-           <Link to={'/selectCoin'}>
-              <div className="flex items-center">
 
+            {/* On-Chain */}
+            <div className="bg-gray-700 p-4 rounded-lg">
+              <Link to={"/selectCoin"}>
+                <div className="flex items-center">
                   <img src={onChainWithdraw} alt="" width={30} />
-                
-                <div className='ml-3'>
-                  <div className="font-medium ">On-Chain Withdraw</div>
-                  <div className="text-sm text-gray-400">Withdraw Crypto from Binance to other exchanges/</div>
+
+                  <div className="ml-3">
+                    <div className="font-medium ">On-Chain Withdraw</div>
+                    <div className="text-sm text-gray-400">
+                      Withdraw Crypto from Binance to other exchanges/
+                    </div>
+                  </div>
                 </div>
-              </div>
-           </Link>
+              </Link>
             </div>
-            
+
             {/* Sell to INR */}
             <div className="bg-gray-700 p-4 rounded-lg">
               <div className="flex items-center">
-              <img src={sellToInr} alt="" width={30} />
-                <div className='ml-3'>
+                <img src={sellToInr} alt="" width={30} />
+                <div className="ml-3">
                   <div className="font-medium">Sell to INR</div>
-                  <div className="text-sm text-gray-400">Sell crypto easily to your account.</div>
+                  <div className="text-sm text-gray-400">
+                    Sell crypto easily to your account.
+                  </div>
                 </div>
               </div>
             </div>
-            
+
             {/* P2P */}
             <div className="bg-gray-700 p-4 rounded-lg">
               <div className="flex items-center">
-              <img src={p2p} alt="" width={30} />
-                <div className='ml-3'>
+                <img src={p2p} alt="" width={30} />
+                <div className="ml-3">
                   <div className="font-medium">P2P Trading</div>
-                  <div className="text-sm text-gray-400">Sell directly to users. Competitive pricing. Local</div>
+                  <div className="text-sm text-gray-400">
+                    Sell directly to users. Competitive pricing. Local
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          
+
           {/* Bottom Indicator */}
           <div className="flex justify-center mt-6">
             <div className="w-16 h-1 bg-gray-600 rounded-full"></div>
