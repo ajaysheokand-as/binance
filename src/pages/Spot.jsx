@@ -1,9 +1,16 @@
 import { useState } from "react";
-import { Search } from "lucide-react";
 import BottomNavigation from "../components/BottomNavigation";
 import { Link } from "react-router-dom";
 import search from "../assets/search.png";
-import eye from '../assets/eye.png'
+import eye from "../assets/eye.png";
+import Exchange from "../assets/Exchange.jpg";
+import lt from "../assets/lt.png";
+import dol from "../assets/$.jpg";
+import dol2 from "../assets/dol2.jpg";
+import uss from "../assets/uss.jpg";
+import yy from "../assets/yy.jpg";
+import sss from "../assets/sss.jpg";
+import vv from "../assets/vv.jpg";
 export default function Spot() {
   const [activeSection, setActiveSection] = useState("Spot");
   const [activeSubSection, setActiveSubSection] = useState("Spot");
@@ -13,35 +20,40 @@ export default function Spot() {
       {/* Status Bar */}
 
       {/* Top Navigation */}
-      <div className="flex bg-gray-900 justify-center">
-        <div className="grid grid-cols-2 gap-1 bg-gray-800 rounded-lg p-1 w-64 mt-2">
-          <div className="bg-gray-900 py-2 rounded-lg text-center font-medium text-white">
-            Exchange
-          </div>
-          <div className="py-2 text-center text-gray-400">Wallet</div>
-        </div>
-      </div>
+      <img src={Exchange} alt="" />
 
       {/* Main Content Area */}
-      <div className="flex-1 bg-gray-900 overflow-y-auto">
+      <div className="flex-1 color overflow-y-auto">
         {/* Secondary Navigation */}
-        <div className="flex justify-start border-b border-gray-800 px-2 text-sm">
+        <div className="flex justify-start border-b-1 assets px-3  -mt-2 text-sm">
           <Link
             to={"/Assets"}
-            className={`py-3 px-2 mr-4 ${
+            className={`py-3 px-1 mr-4 font-bold text-[17px] ${
               activeSection === "Overview"
-                ? "text-white font-medium border-b-2 border-white"
+                ? "text-white font-medium  "
                 : "text-gray-400"
             }`}
             onClick={() => setActiveSection("Overview")}
           >
             Overview
           </Link>
+
+          <Link
+            to={"/spot"}
+            className={`py-3 px-1 mr-4 font-bold text-[17px] ${
+              activeSection === "Spot"
+                ? "text-white font-medium "
+                : "text-gray-400"
+            }`}
+            onClick={() => setActiveSection("Spot")}
+          >
+            Spot
+          </Link>
           <Link
             to={"/funding"}
-            className={`py-3 px-2 mr-4 ${
+            className={`py-3 px-1 mr-4 font-bold text-[17px] ${
               activeSection === "Funding"
-                ? "text-white font-medium border-b-2 border-white"
+                ? "text-white font-medium "
                 : "text-gray-400"
             }`}
             onClick={() => setActiveSection("Funding")}
@@ -49,15 +61,15 @@ export default function Spot() {
             Funding
           </Link>
           <Link
-            to={"/spot"}
-            className={`py-3 px-2 mr-4 ${
-              activeSection === "Spot"
-                ? "text-white font-medium border-b-2 border-white"
+            to={"/futures"}
+            className={`py-3 px-1 mr-4 font-bold text-[17px] ${
+              activeSection === "futures"
+                ? "text-white font-medium "
                 : "text-gray-400"
             }`}
-            onClick={() => setActiveSection("Spot")}
+            onClick={() => setActiveSection("futures")}
           >
-            Spot
+            Futures
           </Link>
         </div>
 
@@ -66,7 +78,7 @@ export default function Spot() {
           <button
             className={`py-1 px-3 mr-3 whitespace-nowrap ${
               activeSubSection === "Spot"
-                ? "text-white font-medium bg-gray-800 rounded-md"
+                ? "text-white font-medium color rounded-md"
                 : "text-gray-400"
             }`}
             onClick={() => setActiveSubSection("Spot")}
@@ -96,14 +108,17 @@ export default function Spot() {
         </div>
 
         {/* Account Value */}
-        <div className="px-4 py-3">
-          <div className="flex items-center text-gray-400 text-sm mb-1 justify-between">
-            <span className="flex gap-1 items-center">
-              Est. Total Value
+        <div className="px-4 py-1">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center ml-1">
+              <div className="text-gray-100 mr-2">Est. Total Value</div>
+              {/* <Eye size={17} /> */}
               <img src={eye} alt="" width={30} />
-            </span>
-            <div className="">
-              <Link to={"/withdrawal"}>
+            </div>
+
+            <div className="flex gap-4 ">
+              <img src={lt} alt="" width={22} />
+              <Link to={"/withdrawal"} className="text-white">
                 <svg
                   width={20}
                   class="bn-svg icon-active left-icon-pc sidebar-icon-size shrink-0"
@@ -120,43 +135,31 @@ export default function Spot() {
               </Link>
             </div>
           </div>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <span className="text-3xl font-bold text-white">$0.00</span>
-              <span className="text-gray-400 ml-2 text-sm">USD ▼</span>
+          <div className="flex  gap-2 mb-2">
+            <div className="text-3xl font-bold flex items-center">
+              {" "}
+              <img src={dol} width={20} alt="" />{" "}
+              <span className=" text-white">139.96</span>
             </div>
+            <img src={uss} width={60} alt="" className="mt-2" />
           </div>
-          <div className="text-gray-400 text-sm mt-1">
-            Today's PNL +$0.00 &gt;
-          </div>
-        </div>
-
-        {/* Action Buttons */}
-        {/* <div className="grid grid-cols-3 gap-2 px-4 mb-4">
-          <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-2 rounded text-sm">
-            Deposit
-          </button>
-          <button className="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 rounded text-sm">
-            Withdraw
-          </button>
-          <button className="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 rounded text-sm">
-            Transfer
-          </button>
-        </div> */}
-        <div className="px-2">
-          <div className="flex mx-1 space-x-3">
-            <button className="bg-yellow-400 text-black font-medium py-3 rounded-lg flex-1">
-             Deposit
+          <img src={vv} alt="" />
+          <div className="flex  space-x-2 mb-4  ">
+            <button className=" bg-yellow-300 text-black p-2 px-5  rounded-lg">
+              Add Funds
             </button>
-            <button className="bg-gray-800 text-white font-medium py-3 rounded-lg flex-1">
-             Withdraw
+            <button className="flex-1 fromColor text-white p-2 px-5 rounded-lg">
+              <Link to={"/CryptoWalletWithdraw"} className=" text-white">
+                Send
+              </Link>
             </button>
-            <button className="bg-gray-800 text-white font-medium py-3 rounded-lg flex-1">
-              Transfer
+            <button className="flex-1 fromColor text-white p-2 px-5 rounded-lg">
+              <Link to={"/transfer"} className=" text-white">
+                Transfer
+              </Link>
             </button>
           </div>
         </div>
-
         {/* Balances Section */}
         <div className="px-4">
           <div className="flex justify-between items-center mb-3">

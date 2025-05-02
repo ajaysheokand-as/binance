@@ -1,98 +1,136 @@
-import React from 'react';
-import { ArrowLeft, RotateCw, CheckCircle, Copy } from 'lucide-react';
-import BottomNavigation from '../components/BottomNavigation';
-
+import { ChevronLeft, RefreshCw,ArrowLeft, Copy, CheckCircle, Check } from "lucide-react";
+import { useState, useEffect, useContext } from "react";
+import head from '../assets/head.jpg'
+import { historyContext } from "../context/HistoryContextProvider";
+import { useParams ,Link } from "react-router-dom";
 export default function WithdrawalDetails() {
+  const prams =  useParams()
+  const {withdrawals} =  useContext(historyContext)
+  const filterWith =  withdrawals.filter(val => val.id==prams.id)
+  const { amount ,currency ,timestamp ,status} = filterWith[0]
+
+  const [address, setAddress] = useState("0x7eC76a28DdD8221C932ee");
+  const [txid, setTxid] = useState("0xa8e7cd3f33c549d7487aae0e57729a5fb");
+  const [date, setDate] = useState(timestamp);
+  const [addressCopied, setAddressCopied] = useState(false);
+  const [txidCopied, setTxidCopied] = useState(false);
+  
+  const copyToClipboard = (text, type) => {
+    navigator.clipboard.writeText(text).then(() => {
+      if (type === 'address') {
+        setAddressCopied(true);
+        setTimeout(() => setAddressCopied(false), 2000);
+      } else if (type === 'txid') {
+        setTxidCopied(true);
+        setTimeout(() => setTxidCopied(false), 2000);
+      }
+    });
+  };
+  
   return (
-    <div className="flex flex-col min-h-screen bg-gray-900 text-white font-sans max-w-md mx-auto">
-      {/* Status Bar */} 
+    <div className=" color text-white min-h-screen w-full font-sans relative">
+      {/* Status bar */}
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3">
-        <ArrowLeft size={20} />
-        <h1 className="text-lg font-medium">Withdrawal Details</h1>
-        <RotateCw size={20} />
+      <div className="flex items-center justify-between p-4">
+        <Link to={'/withdrawal'}> 
+      <ArrowLeft className="text-gray-400" size={24} />
+        </Link>
+        <h1 className="text-xl font-medium text-gray-200">Withdrawal Details</h1>
+       <img src={head} alt="" width={30} />
       </div>
       
-      {/* Main Content */}
-      <div className="px-6">
-        {/* Withdrawal Amount */}
-        <div className="text-center my-8">
-          <h2 className="text-3xl font-bold">-39.912928 TRX</h2>
-          <div className="flex items-center justify-center mt-2">
-            <CheckCircle size={20} className="text-green-500 mr-2" />
-            <span className="text-green-500">Completed</span>
+      {/* Main content */}
+      <div className="px-4 mt-2">
+        {/* Amount and status */}
+        <div className="flex flex-col items-center py-2  pb-4">
+          <h2 className="text-3xl font-bold  ">{amount} {currency}</h2>
+          <div className="flex items-center text-green-400 mb-2 mt-3">
+            <CheckCircle size={20} className="mr-2" fill="rgba(74, 222, 128, 0.2)" />
+            <span className="text-lg">{status}</span>
           </div>
-          <p className="text-gray-400 text-sm mt-4 text-center">
+          <p className="text-gray-400 text-center text-[14px] ">
             Crypto transferred out of Binance. Please contact the recipient platform for your transaction receipt.
           </p>
-          <p className="text-yellow-500 text-sm mt-2">Why hasn't my withdrawal arrived?</p>
-        </div>
-        
-        <div className="border-t border-gray-700 my-4"></div>
-        
-        {/* Transaction Details */}
-        <div className="space-y-4">
-          <div className="flex justify-between items-center">
-            <span className="text-gray-400">Network</span>
-            <span>TRX</span>
-          </div>
-          
-          <div className="flex justify-between items-center">
-            <span className="text-gray-400">Address</span>
-            <div className="flex items-center">
-              <span className="text-right max-w-xs truncate">TF4abYRaH2TZmGnByRSTyLmAd73TNxBhk</span>
-              <Copy size={16} className="ml-2 text-gray-400" />
-            </div>
-          </div>
-          
-          <div className="flex justify-between items-center">
-            <span className="text-gray-400">Txid</span>
-            <div className="flex items-center">
-              <span className="text-right text-xs max-w-xs truncate">0e8f6c392d0e873abb29f221cf15403b0c90de3e2147fda15ac549b461cfa86d</span>
-              <Copy size={16} className="ml-2 text-gray-400" />
-            </div>
-          </div>
-          
-          <div className="flex justify-between items-center">
-            <span className="text-gray-400">Amount</span>
-            <span>40.912928 TRX</span>
-          </div>
-          
-          <div className="flex justify-between items-center">
-            <span className="text-gray-400">Network fee</span>
-            <span>1.00000000 TRX</span>
-          </div>
-          
-          <div className="flex justify-between items-center">
-            <span className="text-gray-400">Wallet</span>
-            <span>Spot Wallet</span>
-          </div>
-          
-          <div className="flex justify-between items-center">
-            <span className="text-gray-400">Date</span>
-            <span>2025-03-27 16:49:03</span>
-          </div>
+          <p className="text-yellow-400 text-center text-[14px]">
+            Why hasn't my withdrawal arrived?
+          </p>
         </div>
       </div>
       
-      {/* Page Indicator */}
-      <div className="flex justify-center mt-8 mb-6">
-        <div className="flex space-x-1">
-          <div className="w-1 h-1 rounded-full bg-white"></div>
-          <div className="w-1 h-1 rounded-full bg-red-500"></div>
+      {/* Divider */}
+      <div className="w-full h-px bg-gray-700 mt-3 mb-6"></div>
+      
+      {/* Transaction details */}
+      <div className="px-4">
+        <div className="flex justify-between ">
+          <span className="text-gray-400">Network</span>
+          <span className="text-white">BSC</span>
+        </div>
+         
+        <div className="flex justify-between  py-4 border-b border-gray-800">
+          <span className="text-gray-400">Address</span>
+          <div className="flex items-center justify-end max-w-2xl">
+            <span className="text-white text-right  font-normal w-[220px]   break-all">{address}</span>
+            <button 
+              onClick={() => copyToClipboard(address, 'address')} 
+              className="text-gray-400 ml-2 flex-shrink-0"
+            >
+              {addressCopied ? <Check size={18} className="text-green-400" /> : <Copy size={18} />}
+            </button>
+          </div>
+        </div>
+        
+        <div className="flex justify-between py-2 border-b border-gray-800">
+          <span className="text-gray-400">Txid</span>
+          <div className="flex items-center justify-end max-w-2xl">
+          <span className="text-white text-right  font-normal w-[220px]  break-all">{txid}</span>
+            {/* <a href="#" className="text-blue-400 text-right break-all">
+              {txid}
+            </a> */}
+            <button 
+              onClick={() => copyToClipboard(txid, 'txid')} 
+              className="text-gray-400 ml-2 flex-shrink-0"
+            >
+              {txidCopied ? <Check size={18} className="text-green-400" /> : <Copy size={18} />}
+            </button>
+          </div>
+        </div>
+        
+        <div className="flex justify-between items-center py-2 border-b border-gray-800">
+          <span className="text-gray-400">Amount</span>
+          <span className="text-white">10 USDT</span>
+        </div>
+        
+        <div className="flex justify-between items-center py-2 border-b border-gray-800">
+          <span className="text-gray-400">Network fee</span>
+          <span className="text-white">0.00000000 USDT</span>
+        </div>
+        
+        <div className="flex justify-between items-center py-2 border-b border-gray-800">
+          <span className="text-gray-400">Wallet</span>
+          <span className="text-white">Spot Wallet</span>
+        </div>
+        
+        <div className="flex justify-between items-center py-2 border-b border-gray-800">
+          <span className="text-gray-400">Date</span>
+          <span className="text-white">{date}</span>
         </div>
       </div>
       
-      {/* Bottom Buttons */}
-      <div className="flex px-6 mt-auto mb-20 gap-4" >
-        <button className="flex-1 bg-gray-700 py-3 rounded-md font-medium">
-          Scam Report
-        </button>
-        <button className="flex-1 bg-gray-700 py-3 rounded-md font-medium">
-          Save Address
-        </button>
+      {/* Bottom buttons */}
+      <div className="absolute bottom-5 left-0 right-0 px-4">
+        <div className="flex justify-between gap-4">
+          <button className="flex-1 fromColor text-white py-4 rounded-lg font-medium">
+            Scam Report
+          </button>
+          <button className="flex-1 fromColor text-white py-4 rounded-lg font-medium">
+            Save Address
+          </button>
+        </div>
       </div>
-      <BottomNavigation/>
+      
+      {/* Bottom bar */}
+
     </div>
   );
 }

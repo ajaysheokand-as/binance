@@ -2,8 +2,16 @@ import React, { useState } from "react";
 import BottomNavigation from "../components/BottomNavigation";
 import logobb from "../assets/logobb.png";
 import headerIcons from '../assets/99.png'
-import mainIcon from '../assets/mainIcon.png'
+import mainIcon from '../assets/main.jpg'
 import search from '../assets/search.png'
+import fire from '../assets/f.png'
+// import do from '../assets/.png'
+import dol from '../assets/$.jpg'
+import addd from '../assets/addd.jpg'
+import aq from '../assets/aq.jpg'
+import zzz from '../assets/zzz.jpg'
+import btl from '../assets/btl.jpg'
+import { Menu } from "lucide-react";
 const HomeScreen = () => {
   const [activeTab, setActiveTab] = useState("Market Cap");
 
@@ -158,7 +166,7 @@ const HomeScreen = () => {
   const bottomTabList = ["Discover", "Following", "News", "Announcements"];
 
   return (
-    <div className="flex flex-col h-screen max-w-md mx-auto bg-gray-800 text-white font-['SF_Pro_Display',-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open_Sans','Helvetica_Neue',sans-serif]">
+    <div className="flex flex-col h-screen max-w-md mx-auto color text-white font-['SF_Pro_Display',-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open_Sans','Helvetica_Neue',sans-serif]">
       {/* Status Bar */}
       {/* <div className="flex justify-between items-center p-2 px-4 bg-gray-900">
         <div className="text-lg font-semibold">12:50</div>
@@ -176,33 +184,33 @@ const HomeScreen = () => {
       </div> */}
 
       {/* Search Header */}
-      <div className="flex items-center justify-between p-3 bg-gray-800">
+      {/* <div className="flex items-center justify-between px-1 color">
         <div className="flex items-center w-full">
-          <div className="bg-gray-800 p-2 rounded-full mr-3 flex items-center justify-center">
-            <img src={logobb} height={30} width={40} className="rounded-md cursor-pointer" />
+          <div className="bg-gray-800 p-2 rounded-full flex items-center justify-center">
+            <img src={logobb} height={30} width={35} className="rounded-md cursor-pointer" />
           </div>
-          <div className="bg-gray-700 flex items-center rounded-full py-2 px-4 flex-1 mr-3">
-            <img src={search} width={20} alt="" />
-            <span className="text-red-500 mx-1">🔥</span>
+          <div className="bg-gray-700 flex items-center rounded-xl py-1 px-2 flex-1 mr-1">
+            <img src={search} width={17} alt="" />
+            <span className="text-red-500 mx-1"><img src={fire} alt="" width={22} /></span>
             <span className="text-gray-400">UFT</span>
           </div>
         </div>
         <div className="flex space-x-5 cursor-pointer">
-          <img src={headerIcons} width={160} height={10} alt="" />
+          <img src={headerIcons} width={130} height={10} alt="" />
           {/* {headerIcons.message}
           {headerIcons.headphones}
           {headerIcons.bell} */}
-        </div>
-      </div>
-
+        {/* </div> */}
+      {/* </div>  */}
+        <img src={aq} alt="" />
       {/* Portfolio Value */}
-      <div className="p-4 bg-gray-800">
-        <div className="flex items-center mb-2">
-          <span className="text-gray-400 text-sm font-medium cursor-pointer">
+      <div className="p-4 py-2 color mt-2">
+        <div className="flex items-center -mb-2">
+          <span className="text-white text-sm font-medium cursor-pointer">
             Est. Total Value (USD)
           </span>
           <svg
-            className="ml-1 h-4 w-4 text-gray-400"
+            className="ml-1 h-4 w-4 text-gray-400 rotate-180"
             viewBox="0 0 24 24"
             fill="currentColor"
           >
@@ -210,17 +218,18 @@ const HomeScreen = () => {
           </svg>
         </div>
         <div className="flex justify-between items-center">
-          <div className="text-3xl font-bold">$139.96</div>
-          <button className="bg-yellow-500 cursor-pointer text-black font-semibold py-2 px-6 rounded-full text-sm">
+          <div className="text-3xl font-bold flex items-center"> <img src={dol} width={20}  alt="" /> 139.96</div>
+          <img src={addd} alt="" width={120} />
+          {/* <button className="bg-yellow-300 cursor-pointer text-gray-800 font-semibold py-3 px-5 rounded-xl text-sm">
             Add Funds
-          </button>
+          </button> */}
         </div>
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-gray-800">
+      {/* <div className="bg-gray-800"> */}
        <img src={mainIcon} alt="" className="cursor-pointer" />
-      </div>
+      {/* </div> */}
       {/* <div className="flex justify-around p-4 bg-gray-800 border-b border-gray-700">
         <div className="flex flex-col items-center cursor-pointer">
           <div className="p-3 bg-gray-700 rounded-full mb-2 relative">
@@ -246,12 +255,13 @@ const HomeScreen = () => {
       </div> */}
 
       {/* Market Tabs */}
-      <div className="overflow-x-auto scrollbar-hide bg-gray-800">
-        <div className="flex p-2 space-x-5 border-b border-gray-700 min-w-max">
+      <img src={zzz} alt="" />
+      {/* <div className=" scrollbar-hide color">
+        <div className="flex p-1 py-2 space-x-1  border-gray-700 min-w-max">
           {marketTabs.map((tab) => (
             <button
               key={tab}
-              className={`px-2 py-1 whitespace-nowrap text-sm cursor-pointer ${
+              className={`px-2 py-1 whitespace-nowrap text-[16px] cursor-pointer ${
                 activeTab === tab
                   ? "text-white border-b-2 border-yellow-500 font-medium"
                   : "text-gray-400"
@@ -261,21 +271,22 @@ const HomeScreen = () => {
               {tab}
             </button>
           ))}
+        <Menu className="-ml-2 mt-1 cursor-pointer font-bold " />
         </div>
-      </div>
+      </div> */}
 
       {/* Market Table */}
       <div className="flex-1 overflow-y-auto">
         <div className="flex justify-between px-4 py-1  text-gray-400 text-xs">
           <div className="w-1/4">Name</div>
-          <div className="w-2/5 text-right">Last Price</div>
-          <div className="w-1/3 text-right">24h ch%</div>
+          <div className="w-2/5 text-right">Last Price/24Chg%</div>
+          <div className="w-1/3 text-right">Cap/Vol</div>
         </div>
 
         {cryptoData.map((crypto, index) => (
           <div
             key={index}
-            className="flex justify-between cursor-pointer items-center px-4 py-3 border-b border-gray-700"
+            className="flex justify-between cursor-pointer items-center px-4 py-3  border-gray-700"
           >
             <div className="font-bold text-sm w-1/4">{crypto.name}</div>
             <div className="text-right w-2/5">
@@ -291,42 +302,11 @@ const HomeScreen = () => {
           </div>
         ))}
 
+          <div className="text-yellow-400 text-sm font-medium text-center mt-2">View More</div>
+           <img src={btl} alt="" className=""  />
         <div className="text-center py-3">
-          <span className="text-yellow-500 text-sm font-medium">View More</span>
         </div>
-      </div>
-
-      {/* Bottom Tab List */}
-      <div className="overflow-x-auto scrollbar-hide border-t border-gray-700">
-        <div className="flex p-2 space-x-5 min-w-max">
-          {bottomTabList.map((tab) => (
-            <button
-              key={tab}
-              className={`px-2 py-1 whitespace-nowrap text-sm ${
-                tab === "Discover"
-                  ? "text-white border-b-2 border-yellow-500 font-medium"
-                  : "text-gray-400"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-          <div className="px-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-gray-400"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
+         </div>
       <BottomNavigation />
     </div>
   );

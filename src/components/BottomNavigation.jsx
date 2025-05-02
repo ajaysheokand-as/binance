@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import markit from "../assets/market.png"
 import features from "../assets/features.png"
-import lt from "../assets/lt.png"
+import lt from "../assets/12.svg"
 export default function BottomNavigation() {
   const [activeBottomTab, setActiveBottomTab] = useState("Home");
   const bottomTabs = ["Home", "Markets", "Trade", "Futures", "Assets"];
@@ -21,7 +21,7 @@ export default function BottomNavigation() {
   return (
     <>
       {/* Fixed Bottom Navigation Bar */}
-      <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto flex justify-around items-center p-3 bg-gray-900 border-t border-gray-800">
+      <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto flex justify-around items-center p-3 color border-t border-gray-800">
         {bottomTabs.map((tab) => (
           <NavLink
             key={tab}

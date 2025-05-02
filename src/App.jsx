@@ -11,7 +11,11 @@ import Funding from "./pages/Funding";
 import Trade from "./pages/Trade";
 import WithdrawalDetails from "./pages/WithdrawalDetails";
 import CryptoTransfer from "./pages/CryptoTransfer";
+import CryptoNetworkSelector from "./pages/CryptoNetworkSelector";
 import Spot from "./pages/Spot";
+import ConfirmOrder from "./pages/ConfirmOrder";
+import AuthenticatorVerification from "./pages/AuthenticatorVerification";
+import WithdrawalProcessing from "./pages/WithdrawalProcessing";
 function App() {
   return (
     <>
@@ -26,8 +30,12 @@ function App() {
         <Route path="/transfer" element={<CryptoTransfer/>} />
         <Route path="/trade" element={<Trade/>} />
         <Route path="/USDT" element={<USDT/>} />
+        <Route path="/confirmOrder" element={<ConfirmOrder/>} />
+        <Route path="/auth" element={<AuthenticatorVerification/>} />
+        <Route path="/withdrawalProcessing" element={<WithdrawalProcessing/>} />
         <Route path="/funding" element={<Funding/>} />
         <Route path="/spot" element={<Spot/>} />
+        <Route path="/CryptoNetworkSelector" element={<CryptoNetworkSelector/>} />
         <Route path="*" element={<HomeScreen />} />
       </Routes>
     </>
