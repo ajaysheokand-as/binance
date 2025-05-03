@@ -9,7 +9,7 @@ import p2p from "../assets/p2p.png";
 
 const CryptoWalletWithdraw = () => {
   return (
-    <div className="flex flex-col bg-gray-900 text-white h-screen w-full max-w-md mx-auto relative">
+    <div className="flex flex-col color text-white h-screen w-full max-w-md mx-auto relative">
       {/* Status Bar
       <div className="flex justify-between items-center p-2 text-sm text-gray-300">
         <div>12:00</div>
@@ -121,7 +121,7 @@ const CryptoWalletWithdraw = () => {
 
       {/* Action Buttons */}
       <div className="flex px-4 gap-2 mt-2">
-        <button className="flex-1 bg-yellow-500 text-black py-3 rounded-md font-medium">
+        <button className="flex-1 btn-2 text-black py-3 rounded-md font-medium">
           Add Funds
         </button>
         <button className="flex-1 bg-gray-800 text-white py-3 rounded-md">
@@ -134,14 +134,14 @@ const CryptoWalletWithdraw = () => {
 
       {/* Convert Banner */}
       <div className="flex items-center p-4 mt-4">
-        <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center mr-2">
+        <div className="w-6 h-6 btn-2 rounded-full flex items-center justify-center mr-2">
           <span className="text-xs">₿</span>
         </div>
         <span className="text-gray-400">Convert Low-Value Assets to BNB</span>
       </div>
 
       {/* Modal Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end">
+      <div className="absolute inset-0  flex items-end">
         <div className="bg-gray-800 w-full rounded-t-xl p-4">
           <div className="flex justify-center mb-2">
             <div className="w-12 h-1 bg-gray-600 rounded-full"></div>
@@ -151,7 +151,7 @@ const CryptoWalletWithdraw = () => {
           {/* Withdraw Options */}
           <div className="space-y-3">
             {/* Binance Users */}
-            <div className="bg-gray-700 p-4 rounded-lg">
+            <div className=" border-1 assets p-4 rounded-lg">
               <div className="flex items-center">
                 <img src={sendToBin} alt="" width={40} />
                 {/* <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center mr-3">
@@ -159,7 +159,7 @@ const CryptoWalletWithdraw = () => {
                   </div> */}
                 <div>
                   <div className="font-medium">Send to Binance users</div>
-                  <div className="text-sm text-gray-400">
+                  <div className="text-[12px] text-gray-400">
                     Binance internal transfer, send via Email/Phone/ID
                   </div>
                 </div>
@@ -167,14 +167,14 @@ const CryptoWalletWithdraw = () => {
             </div>
 
             {/* On-Chain */}
-            <div className="bg-gray-700 p-4 rounded-lg">
+            <div className="border-1 assets p-4 rounded-lg">
               <Link to={"/selectCoin"}>
                 <div className="flex items-center">
                   <img src={onChainWithdraw} alt="" width={30} />
 
                   <div className="ml-3">
                     <div className="font-medium ">On-Chain Withdraw</div>
-                    <div className="text-sm text-gray-400">
+                    <div className="text-[12px] text-gray-400">
                       Withdraw Crypto from Binance to other exchanges/
                     </div>
                   </div>
@@ -183,12 +183,12 @@ const CryptoWalletWithdraw = () => {
             </div>
 
             {/* Sell to INR */}
-            <div className="bg-gray-700 p-4 rounded-lg">
+            <div className="border-1 assets p-4 rounded-lg">
               <div className="flex items-center">
                 <img src={sellToInr} alt="" width={30} />
                 <div className="ml-3">
                   <div className="font-medium">Sell to INR</div>
-                  <div className="text-sm text-gray-400">
+                  <div className="text-[12px] text-gray-400">
                     Sell crypto easily to your account.
                   </div>
                 </div>
@@ -196,12 +196,12 @@ const CryptoWalletWithdraw = () => {
             </div>
 
             {/* P2P */}
-            <div className="bg-gray-700 p-4 rounded-lg">
+            <div className="border-1 assets p-4 rounded-lg">
               <div className="flex items-center">
                 <img src={p2p} alt="" width={30} />
                 <div className="ml-3">
                   <div className="font-medium">P2P Trading</div>
-                  <div className="text-sm text-gray-400">
+                  <div className="text-[12px] text-gray-400">
                     Sell directly to users. Competitive pricing. Local
                   </div>
                 </div>

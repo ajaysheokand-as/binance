@@ -1,47 +1,60 @@
-import { useState } from "react";
-import { Search } from "lucide-react";
+import { useContext, useState } from "react";
 import BottomNavigation from "../components/BottomNavigation";
 import { Link } from "react-router-dom";
-import search from "../assets/search.png";
-import eye from '../assets/eye.png'
+import eye from "../assets/eye.png";
+import Exchange from "../assets/Exchange.jpg";
+import dol from "../assets/$.jpg";
+import uss from "../assets/uss.jpg";
+import vv from "../assets/vv.jpg";
+import dol2 from '../assets/dol2.jpg'
+import sss from '../assets/sss.jpg'
+import  send from '../assets/send.jpg'
+import  lowValue from '../assets/lowValue.jpg'
+import { historyContext } from "../context/HistoryContextProvider";
 export default function Spot() {
   const [activeSection, setActiveSection] = useState("Spot");
   const [activeSubSection, setActiveSubSection] = useState("Spot");
-
+  const {totalValue} = useContext(historyContext)
+const [showImg  ,setShowImg] =useState(false)
   return (
-    <div className="bg-black h-screen w-full max-w-md mx-auto overflow-hidden flex flex-col">
+    <div onClick={()=>{showImg &&  setShowImg(false) }} className={`flex flex-col max-w-md mx-auto h-screen color text-white font-sans ${showImg && "nn" }`}>
       {/* Status Bar */}
 
       {/* Top Navigation */}
-      <div className="flex bg-gray-900 justify-center">
-        <div className="grid grid-cols-2 gap-1 bg-gray-800 rounded-lg p-1 w-64 mt-2">
-          <div className="bg-gray-900 py-2 rounded-lg text-center font-medium text-white">
-            Exchange
-          </div>
-          <div className="py-2 text-center text-gray-400">Wallet</div>
-        </div>
-      </div>
+      <img src={Exchange} alt="" />
 
       {/* Main Content Area */}
-      <div className="flex-1 bg-gray-900 overflow-y-auto">
+      <div className="flex-1 color overflow-y-auto">
         {/* Secondary Navigation */}
-        <div className="flex justify-start border-b border-gray-800 px-2 text-sm">
+        <div className="flex justify-start border-b-1 assets px-4  -mt-2 text-sm">
           <Link
             to={"/Assets"}
-            className={`py-3 px-2 mr-4 ${
+            className={`py-3 px-1 mr-4 font-bold text-[17px] ${
               activeSection === "Overview"
-                ? "text-white font-medium border-b-2 border-white"
+                ? "text-white font-medium  "
                 : "text-gray-400"
             }`}
             onClick={() => setActiveSection("Overview")}
           >
             Overview
           </Link>
+
+          <Link
+            to={"/spot"}
+            className={`py-3 px-1 mr-4 font-bold text-[17px] ${
+              activeSection === "Spot"
+                ? "text-white font-medium "
+                : "text-gray-400"
+            }`}
+            onClick={() => setActiveSection("Spot")}
+          >
+            Spot
+          </Link>
           <Link
             to={"/funding"}
-            className={`py-3 px-2 mr-4 ${
+            className={`py-3 px-1 mr-4 font-bold text-[17px] ${
               activeSection === "Funding"
-                ? "text-white font-medium border-b-2 border-white"
+                ? "text-white font-medium "
                 : "text-gray-400"
             }`}
             onClick={() => setActiveSection("Funding")}
@@ -49,24 +62,24 @@ export default function Spot() {
             Funding
           </Link>
           <Link
-            to={"/spot"}
-            className={`py-3 px-2 mr-4 ${
-              activeSection === "Spot"
-                ? "text-white font-medium border-b-2 border-white"
+            to={"/futures"}
+            className={`py-3 px-1 mr-4 font-bold text-[17px] ${
+              activeSection === "futures"
+                ? "text-white font-medium "
                 : "text-gray-400"
             }`}
-            onClick={() => setActiveSection("Spot")}
+            onClick={() => setActiveSection("futures")}
           >
-            Spot
+            Futures
           </Link>
         </div>
 
         {/* Sub Navigation */}
-        <div className="flex overflow-x-auto py-1 scrollbar-hide border-b border-gray-800 px-2 text-sm">
+        <div className="flex overflow-x-auto py-3 scrollbar-hide border-b border-gray-800 px-4 text-sm">
           <button
-            className={`py-1 px-3 mr-3 whitespace-nowrap ${
-              activeSubSection === "Spot"
-                ? "text-white font-medium bg-gray-800 rounded-md"
+            className={`py-1 px-3 mr-3 whitespace-nowrap fromColor ${
+              activeSubSection === "Spot" 
+                ? "text-white font-medium color rounded-md"
                 : "text-gray-400"
             }`}
             onClick={() => setActiveSubSection("Spot")}
@@ -96,14 +109,17 @@ export default function Spot() {
         </div>
 
         {/* Account Value */}
-        <div className="px-4 py-3">
-          <div className="flex items-center text-gray-400 text-sm mb-1 justify-between">
-            <span className="flex gap-1 items-center">
-              Est. Total Value
+        {/* <div className="px-4 py-1">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center ml-1">
+              <div className="text-gray-100 mr-2">Est. Total Value</div>
+             
               <img src={eye} alt="" width={30} />
-            </span>
-            <div className="">
-              <Link to={"/withdrawal"}>
+            </div>
+
+            <div className="flex gap-4 ">
+              <img src={lt} alt="" width={22} />
+              <Link to={"/withdrawal"} className="text-white">
                 <svg
                   width={20}
                   class="bn-svg icon-active left-icon-pc sidebar-icon-size shrink-0"
@@ -120,107 +136,85 @@ export default function Spot() {
               </Link>
             </div>
           </div>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <span className="text-3xl font-bold text-white">$0.00</span>
-              <span className="text-gray-400 ml-2 text-sm">USD ▼</span>
+          <div className="flex  gap-2 mb-2">
+            <div className="text-3xl font-bold flex items-center">
+              {" "}
+              <img src={dol} width={20} alt="" />{" "}
+              <span className=" text-white">{Math.floor(totalValue * 100) / 100}</span>
             </div>
+            <img src={uss} width={60} alt="" className="mt-2" />
           </div>
-          <div className="text-gray-400 text-sm mt-1">
-            Today's PNL +$0.00 &gt;
+          <img src={vv} alt="" />
+          <div className="flex  space-x-2 mb-4  ">
+            <button className=" bg-yellow-300 text-black p-2 px-5  rounded-lg">
+              Add Funds
+            </button>
+            <button className="flex-1 fromColor text-white p-2 px-5 rounded-lg">
+              <Link to={"/CryptoWalletWithdraw"} className=" text-white">
+                Send
+              </Link>
+            </button>
+            <button className="flex-1 fromColor text-white p-2 px-5 rounded-lg">
+              <Link to={"/transfer"} className=" text-white">
+                Transfer
+              </Link>
+            </button>
           </div>
-        </div>
-
-        {/* Action Buttons */}
-        {/* <div className="grid grid-cols-3 gap-2 px-4 mb-4">
-          <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-2 rounded text-sm">
-            Deposit
-          </button>
-          <button className="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 rounded text-sm">
-            Withdraw
-          </button>
-          <button className="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 rounded text-sm">
-            Transfer
-          </button>
         </div> */}
-        <div className="px-2">
-          <div className="flex mx-1 space-x-3">
-            <button className="bg-yellow-400 text-black font-medium py-3 rounded-lg flex-1">
-             Deposit
-            </button>
-            <button className="bg-gray-800 text-white font-medium py-3 rounded-lg flex-1">
-             Withdraw
-            </button>
-            <button className="bg-gray-800 text-white font-medium py-3 rounded-lg flex-1">
-              Transfer
-            </button>
-          </div>
-        </div>
+        <div className="px-4 py-1">
 
+         <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center ml-1">
+                <div className="text-gray-100 mr-2">Est. Total Value</div>
+                {/* <Eye size={17} /> */}
+                <img src={eye} alt="" width={30} />
+                </div>
+                  <div className="flex gap-4 ">
+                    
+                  <Link to={'/withdrawal'}><svg width={20} class="bn-svg icon-active left-icon-pc sidebar-icon-size shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z" fill="currentColor"></path></svg> </Link>
+                  </div>
+                </div>
+        
+                <div className="flex  gap-2 mb-2">
+                   <div className="text-3xl font-bold flex items-center "> <img src={dol} width={20}  alt="" /> <span className="text-white">{Math.floor(totalValue * 100) / 100}</span></div>
+                    <img src={uss} width={60} alt="" className="mt-2" />
+                </div> 
+                  <img src={vv} alt="" />
+                
+        
+                {/* Action Buttons */}
+                <div className="flex  space-x-2 mb-4  ">
+                  <button className=" btn-2 text-black p-2 px-5  rounded-lg">
+                    Add Funds
+                  </button>
+                  <button onClick={()=>{setShowImg(true)}} className="flex-1 fromColor text-white p-2 px-5 rounded-lg">
+                    Send
+                 
+                  </button>
+                  <button className="flex-1 fromColor text-white p-2 px-5 rounded-lg">
+                 <Link to={'/transfer'} className=" text-white">Transfer</Link> 
+                  </button>
+                </div>
+        </div>
+          <img src={lowValue} alt="" />
         {/* Balances Section */}
-        <div className="px-4">
-          <div className="flex justify-between items-center mb-3">
-            <h2 className="text-lg font-bold text-white">Balances</h2>
-            {/* <Search className="h-4 w-4 text-gray-400" /> */}
-            <img src={search} alt="" width={20} />
-          </div>
+        <div className="px-4 py-1">
 
-          {/* USDT Balance */}
-          <div className="border-b border-gray-800 py-3">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center">
-                <div className="flex items-center justify-center bg-teal-500 text-white rounded-full w-6 h-6 mr-3 text-xs">
-                  ₮
+         <div className="flex  justify-between px-2 mb-4 relative">
+                  <img src={sss} alt="" width={100} />
+                  <div className="text-right relative">
+                    <div className="relative">
+                      <div className="">{totalValue}</div>
+                    </div>
+                    <div className="text-gray-400 text-[12px] flex items-center text-right absolute right-0 "> <img src={dol2} width={15} alt="" /> {Math.floor(totalValue * 100) / 100}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-medium text-white text-sm">USDT</div>
-                  <div className="text-gray-400 text-xs">TetherUS</div>
                 </div>
-              </div>
-              <div className="text-right text-white">
-                <div className="font-medium">0.00</div>
-              </div>
-            </div>
-          </div>
-
-          {/* BTC Balance */}
-          <div className="border-b border-gray-800 py-3">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center">
-                <div className="flex items-center justify-center bg-orange-500 text-white rounded-full w-6 h-6 mr-3 text-xs">
-                  ₿
-                </div>
-                <div>
-                  <div className="font-medium text-white text-sm">BTC</div>
-                  <div className="text-gray-400 text-xs">Bitcoin</div>
-                </div>
-              </div>
-              <div className="text-right text-white">
-                <div className="font-medium">0.00</div>
-              </div>
-            </div>
-          </div>
-
-          {/* BNB Balance */}
-          <div className="border-b border-gray-800 py-3">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center">
-                <div className="flex items-center justify-center bg-yellow-500 text-white rounded-full w-6 h-6 mr-3 text-xs">
-                  B
-                </div>
-                <div>
-                  <div className="font-medium text-white text-sm">BNB</div>
-                  <div className="text-gray-400 text-xs">BNB</div>
-                </div>
-              </div>
-              <div className="text-right text-white">
-                <div className="font-medium">0.00</div>
-              </div>
-            </div>
-          </div>
-        </div>
+       
       </div>
-
+            {
+                  showImg && <Link to={'/selectCoin'}><img src={send} className="sendImg w-full" /></Link>
+                }
       {/* Bottom Navigation */}
       <BottomNavigation />
       {/* <div className="bg-gray-900 border-t border-gray-800 py-2 px-2">

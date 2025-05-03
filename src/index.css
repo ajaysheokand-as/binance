@@ -10,15 +10,81 @@
   display: none;
 }
 
-*{
+/* *{
   font-family: BinancePlex,Arial,sans-serif !important;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 
-}
+} */
 
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+.color{
+  background: #232834;
+  /* background-color: #333b47; */
+  /* background-color: #07080a; */
+}
+.fromColor{
+  background: #2a323f;
+}
+.fromValue{
+  /* color:rgba(197, 179, 179, 0.484) ; */
+  color: #424c5a;
+}
+.assets{
+  border-color: #606c78;
+}
+.custom-input::placeholder {
+  color: #424c5a;
+}
+
+.sendImg{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 12;
+ border-radius:16px 16px 0px 0px ;
+ animation: myAnim .6s ease 0s 1 normal forwards;
+}
+.myanim{
+  animation: myAnim .6s ease 0s 1 normal forwards;
+}
+.nn::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.691);
+}
+@keyframes myAnim {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 1;
+		transform: translateY(250px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+}
+.btn-2{
+  background-color:  rgb(255 211 54) ;
+}
+
+.text-color{
+  color:  rgb(255 211 54) ;
+}
+
+.redColor{
+  color : rgba(255, 0, 0, 0.495) ;
 }
