@@ -60,25 +60,25 @@ export default function WithdrawalProcessing() {
           <img src={time} alt="" className="w-full" />
         </div>
 
-        <h1 className="text-2xl font-bold mb-3">Withdrawal Processing</h1>
+        <h1 className="text-xl font-bold mb-3">Withdrawal Processing</h1>
 
-        <h2 className="text-3xl font-bold mb-6">
+        <h2 className="text-[28px] font-bold mb-6">
           {amount} {currency}
         </h2>
 
-        <p className="text-gray-400 text-center mb-1">
+        <p className="text-gray-400 text-center mb-1 text-[14px]">
           Estimated completion time: {currentDate}
         </p>
 
-        <p className="text-gray-400 text-center max-w-md">
+        <p className="text-gray-400 text-center max-w-md text-[14px]">
           You will receive an email once withdrawal is completed. View history
           for the latest updates.
         </p>
       </div>
 
       {/* Footer */}
-      <div className="p-4 py-0 absolute bottom-0 right-0 left-0">
-        <button className="w-full py-4 bg-yellow-400 text-black font-medium rounded-lg focus:outline-none">
+      <div className="p-4 py-0 pt-3 fixed bottom-10 right-0 left-0 ">
+        <button className="w-full py-4  btn-2 text-black font-medium rounded-lg focus:outline-none">
           View History
         </button>
       </div>

@@ -42,26 +42,7 @@ export default function Trade() {
       }, 300);
     }
   };
-  
-  const swapCurrencies = () => {
-    // Swap the cryptocurrencies
-    const tempCrypto = fromCrypto;
-    setFromCrypto(toCrypto);
-    setToCrypto(tempCrypto);
-    
-    // Swap the values
-    const tempValue = fromValue;
-    setFromValue(toValue);
-    setToValue(tempValue);
-    
-    // Update the exchange rate
-    if (exchangeRate.rate !== 0) {
-      setExchangeRate({
-        rate: (1 / exchangeRate.rate).toFixed(4),
-        change: -exchangeRate.change
-      });
-    }
-  };
+ 
   
   const selectCrypto = (crypto) => {
     setToCrypto(crypto);
@@ -156,7 +137,7 @@ export default function Trade() {
           <div className="flex justify-between items-center">
             <img src={usd} width={100} alt="" />
             <div className="text-right  overflow-hidden ">
-              <input type="number" style={{ direction: 'rtl', textAlign: 'right' ,caretColor: 'transparent', }} className='text-[23px]  text-white font-bold w-full outline-none' placeholder={fromValuePlaceholder} value={fromValue}  />
+              <input type="number" style={{ direction: 'rtl', textAlign: 'right' ,caretColor: 'transparent', }} className='text-[23px]  text-white font-bold w-full outline-none' placeholder={fromValuePlaceholder} value={fromValue} onChange={(e)=>{setFromValue(e.target.value)}}  />
               {/* <span className="text-[23px] fromValue font-bold">{fromValue}</span> */}
             </div>
           </div>
@@ -249,7 +230,10 @@ export default function Trade() {
             </div>
           )}
         </div>
-        <span className='text-red-400 text-[13px]'>Sorry ! your balance has no liquidity</span>
+        {
+          fromValue.length >= 1 && <span className='text-red-400 text-[13px]'>Sorry ! your balance has no liquidity</span>
+        }
+          
         {/* Preview button */}
         <img src={utce} alt="" className='-mt-1' />
         <img src={btn} alt="" className='-mt-1' />

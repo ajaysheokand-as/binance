@@ -2,10 +2,12 @@
  export  const historyContext =  createContext()
 
 export default function HistoryContextProvider({children}){
-   const [withdrawals ,setWithdrawals]  = useState([ { id: 1, currency: 'TRX', amount: '-48', timestamp: '2025-03-30 11:36:04', status: 'Completed' },])
- 
+   const [withdrawals ,setWithdrawals]  = useState([ { id: 1, currency: 'USDT', amount: '-48', timestamp: '2025-03-30 11:36:04', status: 'Completed' },{ id: 1, currency: 'TRX', amount: '-48', timestamp: '2025-03-30 11:36:04', status: 'Completed' },])
+    const [totalValue , setTotalValue] = useState(136.963448)
+    const [address, setAddress] = useState("");
+    const [amount, setAmount] = useState("");
 return(
-    <historyContext.Provider value={{withdrawals , setWithdrawals}}>
+    <historyContext.Provider value={{withdrawals , setWithdrawals , totalValue ,address ,setAddress , amount ,setAmount }}>
         {children}
     </historyContext.Provider>
 )

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { ChevronDown, Search, Eye , } from 'lucide-react';
+import React, { useState  ,useContext} from 'react';
 import BottomNavigation from '../components/BottomNavigation';
 import { Link } from 'react-router-dom';
 import search from '../assets/search.png'
@@ -7,13 +6,13 @@ import eye from '../assets/eye.png'
 import Exchange from "../assets/Exchange.jpg";
 import lt from "../assets/lt.png";
 import dol from "../assets/$.jpg";
-import dol2 from "../assets/dol2.jpg";
+
 import uss from "../assets/uss.jpg";
-import yy from "../assets/yy.jpg";
-import sss from "../assets/sss.jpg";
+import { historyContext } from "../context/HistoryContextProvider";
 import vv from "../assets/vv.jpg";
 const Funding = () => {
   const [activeSection ,  setActiveSection] =  useState("Funding")
+  const {totalValue} = useContext(historyContext)
   return (
     <div className="color text-white h-screen w-full max-w-md mx-auto flex flex-col">
       {/* Status Bar */}
@@ -98,13 +97,13 @@ const Funding = () => {
             <div className="text-3xl font-bold flex items-center ">
               {" "}
               <img src={dol} width={20} alt="" />{" "}
-              <span className=" text-white">139.96</span>
+              <span className=" text-white">{Math.floor(totalValue * 100) / 100}</span>
             </div>
             <img src={uss} width={60} alt="" className="mt-2" />
           </div>
           <img src={vv} alt="" />
           <div className="flex  space-x-2 mb-4  ">
-            <button className=" bg-yellow-300 text-black p-2 px-5  rounded-lg">
+            <button className=" btn-2 text-black p-2 px-5  rounded-lg">
               Add Funds
             </button>
             <button className="flex-1 fromColor text-white p-2 px-5 rounded-lg">
@@ -170,7 +169,7 @@ const Funding = () => {
         {/* BNB */}
         <div className="mt-4 flex justify-between">
           <div className="flex">
-            <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center text-white">B</div>
+            <div className="w-8 h-8 btn-2 rounded-full flex items-center justify-center text-white">B</div>
             <div className="ml-3">
               <div className="flex items-center">
                 <span className="font-medium">BNB</span>

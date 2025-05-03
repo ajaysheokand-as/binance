@@ -218,7 +218,7 @@ const HomeScreen = () => {
           </svg>
         </div>
         <div className="flex justify-between items-center">
-          <div className="text-3xl font-bold flex items-center"> <img src={dol} width={20}  alt="" /> 139.96</div>
+          <div className="text-3xl font-bold flex items-center"> <img src={dol} width={21}  alt="" /> 139.96</div>
           <img src={addd} alt="" width={120} />
           {/* <button className="bg-yellow-300 cursor-pointer text-gray-800 font-semibold py-3 px-5 rounded-xl text-sm">
             Add Funds
@@ -304,7 +304,7 @@ const HomeScreen = () => {
 
           <div className="text-yellow-400 text-sm font-medium text-center mt-2">View More</div>
            <img src={btl} alt="" className=""  />
-        <div className="text-center py-3">
+        <div className="text-center py-1">
         </div>
          </div>
       <BottomNavigation />

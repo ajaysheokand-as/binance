@@ -1,20 +1,24 @@
-import React from 'react';
-import { ArrowLeft, Search, Trash2,  } from 'lucide-react';
+import React ,{useContext} from 'react';
+import { ArrowLeft, } from 'lucide-react';
 import BottomNavigation from '../components/BottomNavigation';
 import { Link } from 'react-router-dom';
-import UsdtImg from '/public/usdt.svg' ;
+
 import a_z from '../assets/a-z.png' ;
 import search from '../assets/search.png' 
 import trash from '../assets/delete.png' 
 import dol2 from '../assets/dol2.jpg'
 import tet from '../assets/la.jpg'
+import  arrow from '../assets/arrow.jpg'
+import { historyContext } from "../context/HistoryContextProvider";
 const SelectCoin = () => {
+  const {totalValue} = useContext(historyContext)
   return (
     <div className="flex flex-col color text-white h-screen w-full max-w-md mx-auto">
       {/* Status Bar */}
       {/* Header */}
       <div className="flex items-center p-4 border-b border-gray-800">
-        <ArrowLeft className="text-gray-400" size={24} />
+      <img src={arrow} alt=""width={30} />
+        {/* <ArrowLeft className="text-gray-400" size={24} /> */}
         <h1 className="text-xl font-medium flex-1 text-center">Select Coin</h1>
         <div className="w-6"></div>
       </div>
@@ -55,9 +59,9 @@ const SelectCoin = () => {
                  <img src={tet} alt="" width={100} />
                  <div className="text-right relative">
                    <div className="relative">
-                     <div className="">139.96111239</div>
+                     <div className="">{totalValue}</div>
                    </div>
-                   <div className="text-gray-400 text-[12px] flex items-center text-right absolute right-0 "> <img src={dol2} width={15} alt="" /> 139.96</div>
+                   <div className="text-gray-400 text-[12px] flex items-center text-right absolute right-0 "> <img src={dol2} width={15} alt="" /> {Math.floor(totalValue * 100) / 100}</div>
                  </div>
                </div>
        {/* <div className="bg-gray-800 bg-opacity-30 rounded-md p-4">

@@ -74,7 +74,7 @@ const SpotDeposit = () => {
         <button className="px-4 py-2 text-gray-500">Trade History</button>
         <button className="px-4 py-2 text-white relative">
           Deposit
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-yellow-500"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-1 btn-2"></div>
         </button>
         <button className="px-4 py-2 text-gray-500">Withdrawal</button>
         <button className="px-4 py-2 text-gray-500">Buy</button>

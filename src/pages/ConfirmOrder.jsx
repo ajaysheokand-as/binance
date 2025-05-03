@@ -1,17 +1,21 @@
 import { Info } from 'lucide-react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import info from '../assets/info.png'
+import dol from '../assets/11.png'
+import  arrow from '../assets/arrow.jpg'
+import { historyContext } from '../context/HistoryContextProvider';
 export default function ConfirmOrder() {
+  const { } =  useContext(historyContext);
   // Transaction state values
   const [isLoading, setIsLoading] = useState(false);
   const [receiveAmount, setReceiveAmount] = useState('1');
   const [receiveSymbol, setReceiveSymbol] = useState('USDT');
-  const [equivalentValue, setEquivalentValue] = useState('$1.00');
+  const [equivalentValue, setEquivalentValue] = useState('1.00');
   const [network, setNetwork] = useState('Tron (TRC20)');
   const [address, setAddress] = useState('TE8yEjfEKzWqbFWbeG2SNObcR3tARz?p75');
   const [withdrawAmount, setWithdrawAmount] = useState('1');
-  const [networkFee, setNetworkFee] = useState('0.00');
+  const [networkFee, setNetworkFee] = useState('1.00');
   const [walletType, setWalletType] = useState('Spot Wallet');
   
   const handleConfirm = () => {
@@ -27,10 +31,8 @@ export default function ConfirmOrder() {
       {/* Header */}
       <div className="p-4 flex items-center justify-between ">
         <button className="mr-4">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 12H5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M12 19L5 12L12 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+        <img src={arrow} alt=""width={30} />
+         
         </button>
         <h1 className="text-xl font-medium">Confirm order</h1>
         <div></div>
@@ -41,8 +43,8 @@ export default function ConfirmOrder() {
         {/* Amount Display */}
         <div className="flex flex-col items-center justify-center mb-8">
           <p className="text-gray-400">Receive amount</p>
-          <h2 className="text-4xl font-bold mt-2">{receiveAmount} {receiveSymbol}</h2>
-          <p className="text-gray-400 mt-1">≈ {equivalentValue}</p>
+          <h2 className="text-2xl font-bold mt-2">{receiveAmount} {receiveSymbol}</h2>
+          <p className="text-gray-400 mt-1 flex items-center">≈ <img src={dol} alt="" width={13} height={''} />{" "+ equivalentValue}</p>
         </div>
 
         {/* Divider */}
@@ -57,17 +59,17 @@ export default function ConfirmOrder() {
           
           <div className="flex justify-between">
             <p className="text-gray-400">Address</p>
-            <p className="text-right max-w-[60%] break-all">{address}</p>
+            <p className="text-right max-w-[60%] break-all text-[14px]">{address}</p>
           </div>
           
           <div className="flex justify-between">
             <p className="text-gray-400">Withdraw Amount</p>
-            <p>{withdrawAmount} {receiveSymbol}</p>
+            <p >{withdrawAmount} {receiveSymbol}</p>
           </div>
           
           <div className="flex justify-between">
             <p className="text-gray-400">Network fee</p>
-            <p className="">+ {networkFee} {receiveSymbol}</p>
+            <p className="">{networkFee} {receiveSymbol}</p>
           </div>
           
           <div className="flex justify-between">
@@ -93,11 +95,11 @@ export default function ConfirmOrder() {
         </div>
 
         {/* Confirm Button */}
-        <div className="mt-auto">
+        <div className="mt-auto mb-2">
             <Link to={'/auth'}>
           <button 
             onClick={handleConfirm}
-            className="w-full py-4 bg-yellow-400 text-black font-medium rounded-lg focus:outline-none"
+            className="w-full py-3 btn-2 text-black font-medium rounded-lg focus:outline-none"
             disabled={isLoading}
             >
             {isLoading ? "Processing..." : "Confirm"}

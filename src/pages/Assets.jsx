@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Home,
   BarChart2,
@@ -28,11 +28,13 @@ import sss from '../assets/sss.jpg'
 import send from '../assets/send.jpg'
 import vv from '../assets/vv.jpg'
 import notifications from '../assets/notification.png'
+import { historyContext } from "../context/HistoryContextProvider";
 const Assets = () => {
   const [activeSection ,   setActiveSection ] =   useState("Overview")
   const [showImg  ,setShowImg] =useState(false)
+  const {totalValue} =  useContext(historyContext)
    return (
-    <div className={`flex flex-col max-w-md mx-auto h-screen color text-white font-sans`}>
+    <div onClick={()=>{showImg &&  setShowImg(false) }} className={`flex flex-col max-w-md mx-auto h-screen color text-white font-sans ${showImg && "nn" }`}>
       {/* Status Bar */}
       
       <img src={Exchange} alt=""   />
@@ -80,7 +82,6 @@ const Assets = () => {
         {/* <Eye size={17} /> */}
         <img src={eye} alt="" width={30} />
         </div>
-
           <div className="flex gap-4 ">
             <img src={lt} alt="" width={22} />
           <Link to={'/withdrawal'}><svg width={20} class="bn-svg icon-active left-icon-pc sidebar-icon-size shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z" fill="currentColor"></path></svg> </Link>
@@ -88,7 +89,7 @@ const Assets = () => {
         </div>
 
         <div className="flex  gap-2 mb-2">
-           <div className="text-3xl font-bold flex items-center "> <img src={dol} width={20}  alt="" /> <span className="">139.96</span></div>
+           <div className="text-3xl font-bold flex items-center "> <img src={dol} width={20}  alt="" /> <span className="">{Math.floor(totalValue * 100) / 100}</span></div>
             <img src={uss} width={60} alt="" className="mt-2" />
         </div> 
           <img src={vv} alt="" />
@@ -96,7 +97,7 @@ const Assets = () => {
 
         {/* Action Buttons */}
         <div className="flex  space-x-2 mb-4  ">
-          <button className=" bg-yellow-300 text-black p-2 px-5  rounded-lg">
+          <button className=" btn-2 text-black p-2 px-5  rounded-lg">
             Add Funds
           </button>
           <button onClick={()=>{setShowImg(true)}} className="flex-1 fromColor text-white p-2 px-5 rounded-lg">
@@ -107,9 +108,7 @@ const Assets = () => {
          <Link to={'/transfer'} className=" text-white">Transfer</Link> 
           </button>
         </div>
-      {
-        showImg && <Link to={'/selectCoin'}><img src={send} className="sendImg w-full" /></Link>
-      }
+    
       <div className="px-1">
       <div className="color mt-6 rounded-lg p-3 mb-2 border-1 assets">
           <div className="flex items-center  justify-between mb-4">
@@ -148,13 +147,16 @@ const Assets = () => {
           <img src={sss} alt="" width={100} />
           <div className="text-right relative">
             <div className="relative">
-              <div className="">139.96111239</div>
+              <div className="">{totalValue}</div>
             </div>
-            <div className="text-gray-400 text-[12px] flex items-center text-right absolute right-0 "> <img src={dol2} width={15} alt="" /> 139.96</div>
+            <div className="text-gray-400 text-[12px] flex items-center text-right absolute right-0 "> <img src={dol2} width={15} alt="" /> {Math.floor(totalValue * 100) / 100}</div>
           </div>
-      <BottomNavigation />
         </div>
       </div>
+      {
+        showImg && <Link to={'/selectCoin'}><img src={send} className="sendImg w-full" /></Link>
+      }
+      <BottomNavigation />
     </div>
   );
 };

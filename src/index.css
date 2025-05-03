@@ -50,6 +50,19 @@ input::-webkit-inner-spin-button {
  border-radius:16px 16px 0px 0px ;
  animation: myAnim .6s ease 0s 1 normal forwards;
 }
+.myanim{
+  animation: myAnim .6s ease 0s 1 normal forwards;
+}
+.nn::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.691);
+}
 @keyframes myAnim {
 	0% {
 		animation-timing-function: ease-in;
@@ -63,4 +76,15 @@ input::-webkit-inner-spin-button {
 		transform: translateY(0);
 	}
 
+}
+.btn-2{
+  background-color:  rgb(255 211 54) ;
+}
+
+.text-color{
+  color:  rgb(255 211 54) ;
+}
+
+.redColor{
+  color : rgba(255, 0, 0, 0.495) ;
 }

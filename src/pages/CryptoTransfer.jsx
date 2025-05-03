@@ -84,7 +84,7 @@ export default function CryptoTransfer() {
       <div className="flex-grow"></div>
 
       {/* Confirm Button */}
-      <button className="bg-yellow-400 text-black font-medium py-4 mb-15 rounded-lg w-full">
+      <button className="btn-2 text-black font-medium py-4 mb-15 rounded-lg w-full">
         Confirm Transfer
       </button>
       <BottomNavigation />

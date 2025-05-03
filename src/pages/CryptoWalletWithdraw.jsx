@@ -88,7 +88,7 @@ const CryptoWalletWithdraw = () => {
 
       {/* Action Buttons */}
       <div className="flex px-4 gap-2 mt-2">
-        <button className="flex-1 bg-yellow-500 text-black py-3 rounded-md font-medium">
+        <button className="flex-1 btn-2 text-black py-3 rounded-md font-medium">
           Add Funds
         </button>
         <button className="flex-1 bg-gray-800 text-white py-3 rounded-md">
@@ -101,7 +101,7 @@ const CryptoWalletWithdraw = () => {
 
       {/* Convert Banner */}
       <div className="flex items-center p-4 mt-4">
-        <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center mr-2">
+        <div className="w-6 h-6 btn-2 rounded-full flex items-center justify-center mr-2">
           <span className="text-xs">₿</span>
         </div>
         <span className="text-gray-400">Convert Low-Value Assets to BNB</span>
